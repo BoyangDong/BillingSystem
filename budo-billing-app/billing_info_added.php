@@ -4,6 +4,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+	<script type ="text/javascript" src="/js/app.js"></script>
 	<title>Add Billing Info</title>
 </head>
 <body>
@@ -67,8 +68,6 @@ if(isset($_POST['submit'])){
 	}	
 	if(empty($data_missing)){
 		#die(var_dump(ini_get('include_path')));
-
-
 		$sql = "INSERT INTO billing_info(Firm, Office, Account, Currency, Off_Office, Off_Account, Description, `Net_Amount`, Comment_Code) 
 					VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?)";
 
@@ -133,9 +132,6 @@ if(isset($_POST['submit'])){
 		</tr>
 	</table>
 	</form>
-	<script> 
-
-	</script>
 
 </body>
 </html>>
