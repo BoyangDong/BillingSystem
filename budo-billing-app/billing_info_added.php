@@ -72,35 +72,20 @@ if(isset($_POST['submit'])){
 		$sql = "INSERT INTO billing_info(Firm, Office, Account, Currency, Off_Office, Off_Account, Description, `Net_Amount`, Comment_Code) 
 					VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?)";
 
-/*
-		$stmt = mysqli_prepare($db, $query);
-
-		mysqli_stmt_bind_param($stmt, "sssssssds", $f, $o, $a, $c, $oo, $oa, $d, $na, $cc);
-		# i: Integers; d: Doubles; b: Blobs; s: Everything else
-
-		mysqli_stmt_execute($stmt);
-
-		$affected_rows = mysqli_stmt_affected_rows($stmt);
-*/
 		$stmt = $db->prepare($sql);
 		$insert = $stmt->execute([$f, $o, $a, $c, $oo, $oa, $d, $na, $cc]);
-
 
 		if(count($insert)){
 			echo 'Billing Info Entered';
 			$db = null;
-			//mysqli_stmt_close($stmt);
-			//mysqli_close($db);
 		}else{
 			echo 'Error Occured <br />';
-			//echo mysqli_error($db); 
 		}
 	}else{
 		echo 'Enter the missing data below <br />';
 		foreach($data_missing as $missing){
 			echo "missinig <br />" . $missing;
 		}
-
 	}
 }
 ?>
@@ -136,7 +121,7 @@ if(isset($_POST['submit'])){
 		</tr>
 		<tr>
 			<td>Net Amount</td>
-			<td align="center"><input type="number" name="net_amount" size="30"/></td>
+			<td align="center"><input type="number" name="net_amount" size="30" max="0" value="-0.00" step=".01"/></td>
 		</tr>
 		<tr>
 			<td>Comment Code</td>
@@ -144,9 +129,13 @@ if(isset($_POST['submit'])){
 		</tr>
 
 		<tr> 
-		<td colspan="2" align="center"><input type="submit" name="submit" value="Send"/></td>
+		<td colspan="2" align="center"><button id="render" name="submit"/>Send</button></td>
 		</tr>
 	</table>
 	</form>
+	<script> 
+
+	</script>
+
 </body>
 </html>>
