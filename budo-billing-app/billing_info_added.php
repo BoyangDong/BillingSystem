@@ -1,5 +1,5 @@
 <?php
-	require_once 'config.php';
+	require_once 'api/db_config.php';
 ?>
 <!DOCTYPE html>
 <html>

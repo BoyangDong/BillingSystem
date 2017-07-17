@@ -1,7 +1,7 @@
 <html>
 <head>
 <?php
-require_once "config.php"
+require_once "api/db_config.php"
 
 #$db = mysqli_connect('localhost','root','bdong','mydb')
 #	or die('Error connecting to MySQL server.');
