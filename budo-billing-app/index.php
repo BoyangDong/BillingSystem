@@ -44,6 +44,33 @@
 				</button>				
 			</div>
 		</div>
+
+		<!--Main Table Body-->
+		<div class="panel panel-info"> 
+			<div class="panel-heading"> Info Management </div>
+			<div class="panel-body">
+				<table class="table table-bordered"> 
+				<thead> 
+					<tr> 
+						<th>Firm</th>
+						<th>Office</th>
+						<th>Account</th>
+						<th>Currency</th>
+						<th>Off Office</th>
+						<th>Off Account</th>
+						<th>Description</th>
+						<th>Net Amount</th>
+						<th>Comment Code</th>
+						<th width="100px">Action</th>
+					</tr>
+				</thead>
+				</table> 
+				<tbody></tbody>
+				<!--Pagination-->
+				<ul id="pagination" class="pagination-sm">
+			</div>
+		</div>
+
 		<!--create item modal-->
 		<div class="modal fade" id="create-item" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
 			<div class="modal-dialog" role="document">
