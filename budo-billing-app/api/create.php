@@ -22,9 +22,9 @@ require 'db_config.php';
 	$insert = $stmt->execute([$f, $o, $a, $c, $oo, $oa, $d, $na, $cc]);
 
 	if(count($insert)){
-		echo 'Billing Info Entered';
+		$message = 'Billing Info Entered';
 	}else{
-		echo 'Error Occured <br />';
+		$message = 'Error Occured While Inserting Data into DB...<br />';
 	}
 
 	$query = "SELECT * FROM billing_info ORDER BY id DESC LIMIT 1";
@@ -32,21 +32,9 @@ require 'db_config.php';
 
 	if(count($stmt)>0){
 		$data = $stmt->fetch();
-		echo json_encode($data);
+		echo json_encode(array('info'=>$data, 'message'=>$message));
 	}else{
-		echo ' 
-			{
-				"id":-1,
-				"Firm":"Z",
-				"Office":"NAN",
-				"Account":"-0.00",
-				"Currency":"NA",
-				"Off_Office":"NAN",
-				"Off_Account":"NAN",
-				"Description":"NAN",
-				"Net_Amount":"0.00",
-				"Comment_Code":"N"
-			}'; 
+		echo 'Not Able to Fetch the Latest Data from the table...'; 
 	}
 	$db = null;
 

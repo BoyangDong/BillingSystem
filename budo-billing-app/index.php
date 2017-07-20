@@ -10,7 +10,7 @@
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
-	<script type="text/javascript" language="javascript" src="js/app.js"></script>
+	<script type="text/javascript" language="javascript" src="js/item-ajax.js"></script>
 	<link rel="stylesheet" href="css/style.css"/>
 	
 	<title>Budo Billing System</title>  	
@@ -49,38 +49,41 @@
 		<div class="panel panel-info"> 
 			<div class="panel-heading"> Info Management </div>
 			<div class="panel-body">
-				<table class="table table-bordered"> 
-				<thead> 
-					<tr> 
-						<th>Firm</th>
-						<th>Office</th>
-						<th>Account</th>
-						<th>Currency</th>
-						<th>Off Office</th>
-						<th>Off Account</th>
-						<th>Description</th>
-						<th>Net Amount</th>
-						<th>Comment Code</th>
-						<th width="100px">Action</th>
-					</tr>
-				</thead>
+				<!--table class="table table-bordered"--> 
+				<table class="table table-bordered table-striped table-hover"> 
+					<thead> 
+						<tr> 
+							<th>Firm</th>
+							<th>Office</th>
+							<th>Account</th>
+							<th>Currency</th>
+							<th>Off Office</th>
+							<th>Off Account</th>
+							<th>Description</th>
+							<th>Net Amount</th>
+							<th>Comment Code</th>
+							<th width="100px">Action</th>
+						</tr>
+					</thead>
+				<tbody>
+				<?php?>
+				</tbody>
 				</table> 
-				<tbody></tbody>
 				<!--Pagination-->
 				<ul id="pagination" class="pagination-sm">
 			</div>
 		</div>
 
 		<!--create item modal-->
-		<div class="modal fade" id="create-item" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+		<div class="modal fade" id="create-item" tabindex="-1" role="dialog" aria-labelledby="createLabel">
 			<div class="modal-dialog" role="document">
 				<div class="modal-content">
 					<div class="modal-header">
 		        		<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
-		        		<h4 class="modal-title" id="myModalLabel">Create New Billing Info</h4>
+		        		<h4 class="modal-title" id="createLabel">Create New Billing Info</h4>
 		      		</div>
 			      	<div class="modal-body">
-			      		<form data-toggle="validator" action="api/create.php" method="POST">
+			      		<form data-toggle="validator" action="api/create.php" class="add-info" method="POST">
 			      			<div class="form-group">
 								<label class="control-label" for="title">Firm</label>
 								<input type="text" name="firm" class="form-control" value="D" maxlength="1" data-error="Please enter title." required />
@@ -93,7 +96,7 @@
 							</div>
 							<div class="form-group">
 								<label class="control-label" for="title">Account</label>
-								<input type="number" name="account" class="form-control" max="0" value="-0.00" step=".01" data-error="Please enter account." required />
+								<input type="text" name="account" class="form-control" data-error="Please enter account." required />
 								<div class="help-block with-errors"></div>
 							</div>
 							<div class="form-group">
@@ -128,7 +131,7 @@
 								<div class="help-block with-errors"></div>
 							</div>
 							<div class="form-group">
-								<button type="submit" class="btn crud-submit btn-success">Submit</button>
+								<button type="submit" id="submit" class="btn crud-submit btn-success">Submit</button>
 							</div>
 			      		</form>
 					</div>
