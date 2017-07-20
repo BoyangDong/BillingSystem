@@ -30,18 +30,16 @@
 	<!--Container-->
 	<div class="container">
 		<div class="row">
-			<div class="col-lg-12 margin-tb">
-				<div class="pull-left col-lg-10">
-					<h2>Daily Billing System</h2>
-				</div>
-				<div class="pull-right col-lg-2"></div>
-				<button type="button" id="changeDateBtn" class="btn btn-info"> 
-					Change Date
-				</button>
-				<div class="pull-right col-lg-2"></div>
+			<div class="col-lg-10"> <h2>Daily Billing System</h2></div>
+			<div class="col-lg-1">
+				<form method="post" action="api/export.php">
+					<input type="submit" name="export" id="export" class="btn btn-info" value="csv Export"/>
+				</form>
+			</div>
+			<div class="col-lg-1"> 
 				<button type="button" id="createBtn" class="btn btn-success" data-toggle="modal" data-target="#create-item"> 
 					Create 
-				</button>				
+				</button>	
 			</div>
 		</div>
 
@@ -66,7 +64,7 @@
 						</tr>
 					</thead>
 				<tbody>
-				<?php?>
+				<?php //this is where the recurring charge can be preloaded.?>
 				</tbody>
 				</table> 
 				<!--Pagination-->
@@ -139,10 +137,13 @@
 			</div>
 		</div>
 	</div>
-
+	<footer class="footer">
+		<div class="container">
+		<p class="text-muted">Version 0.1.0</p>
+	</div>
+	</footer>
 	<noscript> 
 		<h3>This site requires JavaScript. </h3>
 	</noscript>
-
 </body>
 </html>
