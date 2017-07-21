@@ -1,5 +1,6 @@
 $( document ).ready(function() {
 	
+	/* Insert into DB and show on the page*/
 	$('.add-info').submit(function(e) {
 		e.preventDefault();
 		$.ajax({
@@ -63,8 +64,94 @@ $( document ).ready(function() {
 			$("#create-item").find("input[name='net_amount']").val('');			
 		});
 	});
+	var tableRowId;
+	/* Edit Item*/
+	$("body").on("click", ".edit-item", function(){
+		tableRowId = $(this).parents('tr').index();
+		var id = 			$(this).parent("td").data('id');
+		var firm = 			$(this).parents("tr").find("td").eq(0).text(); 
+		var office = 		$(this).parents("tr").find("td").eq(1).text(); 
+		var account = 		$(this).parents("tr").find("td").eq(2).text(); 
+		var currency = 		$(this).parents("tr").find("td").eq(3).text(); 
+		var off_office = 	$(this).parents("tr").find("td").eq(4).text(); 
+		var off_account = 	$(this).parents("tr").find("td").eq(5).text(); 
+		var description = 	$(this).parents("tr").find("td").eq(6).text(); 
+		var net_amount = 	$(this).parents("tr").find("td").eq(7).text(); 
+		var comment_code = 	$(this).parents("tr").find("td").eq(8).text(); 
 
-		/* Remove Item */
+		$("#edit-item").find("input[name='firm']").val(firm);
+		$("#edit-item").find("input[name='office']").val(office);
+		$("#edit-item").find("input[name='account']").val(account);
+		$("#edit-item").find("input[name='currency']").val(currency);
+		$("#edit-item").find("input[name='off_office']").val(off_office);
+		$("#edit-item").find("input[name='off_account']").val(off_account);
+		$("#edit-item").find("textarea[name='description']").val(description);		
+		$("#edit-item").find("input[name='net_amount']").val(net_amount);
+		$("#edit-item").find("input[name='comment_code']").val(comment_code);
+		
+		$("#edit-item").find(".edit-id").val(id);
+	});
+
+	/* Update Item*/
+	$(".crud-submit-edit").click(function(e){
+		e.preventDefault(); 
+
+		var form_action = $("#edit-item").find("form").attr("action");
+		var id = $("#edit-item").find(".edit-id").val(); 
+
+		var firm = $("#edit-item").find("input[name='firm']").val();
+		var office = $("#edit-item").find("input[name='office']").val();
+		var account = $("#edit-item").find("input[name='account']").val();
+		var currency = $("#edit-item").find("input[name='currency']").val();
+		var off_office = $("#edit-item").find("input[name='off_office']").val();
+		var off_account = $("#edit-item").find("input[name='off_account']").val();
+		var description = $("#edit-item").find("textarea[name='description']").val();
+		var net_amount = $("#edit-item").find("input[name='net_amount']").val();
+		var comment_code = $("#edit-item").find("input[name='comment_code']").val();
+
+		if(firm != '' && office != '' && account != '' && currency != '' && off_office != '' && off_account != '' && description != '' && comment_code != ''){
+			$.ajax({
+				type: 'POST',
+				url: "api/update.php",
+				data:{
+					firm: firm,
+					office: office,
+					account: account,
+					currency: currency,
+					off_office: off_office,
+					off_account: off_account,
+					description: description,
+					net_amount: net_amount,
+					comment_code: comment_code,
+					id: id
+				},
+				success: function(response) {
+					console.log(response);
+					var tableRow = $('tbody tr').eq(tableRowId);
+					var responseObject = JSON.parse(response);
+					tableRow.find('td').eq(0).text(responseObject.Firm);
+					tableRow.find('td').eq(1).text(responseObject.Office);
+					tableRow.find('td').eq(2).text(responseObject.Account);
+					tableRow.find('td').eq(3).text(responseObject.Currency);
+					tableRow.find('td').eq(4).text(responseObject.Off_Office);
+					tableRow.find('td').eq(5).text(responseObject.Off_Account);
+					tableRow.find('td').eq(6).text(responseObject.Description);
+					tableRow.find('td').eq(7).text(responseObject.Net_Amount);
+					tableRow.find('td').eq(8).text(responseObject.Comment_Code);
+				}
+			}).done(function(data){
+				console.log('ajax done');
+				//console.log(data);
+				$(".modal").modal('hide');
+				toastr.success('UPDATED!', 'Success', {timeout: 2000});
+			});
+		}else{
+			alert('Please fill all the blanks required..');
+		}
+
+	});
+
+	/* Remove Item */
 	$("body").on("click",".remove-item",function(){
 		var id = $(this).parent("td").data('id');
 		var c_obj = $(this).parents("tr");
