@@ -9,6 +9,9 @@
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/1000hz-bootstrap-validator/0.11.5/validator.min.js"></script>
+	<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
+    <link href="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css" rel="stylesheet">
 
 	<script type="text/javascript" language="javascript" src="js/item-ajax.js"></script>
 	<link rel="stylesheet" href="css/style.css"/>
@@ -60,7 +63,7 @@
 							<th>Description</th>
 							<th>Net Amount</th>
 							<th>Comment Code</th>
-							<th width="100px">Action</th>
+							<th width="140px">Action</th>
 						</tr>
 					</thead>
 				<tbody>
@@ -115,7 +118,7 @@
 
 							<div class="form-group">
 								<label class="control-label" for="title">Net Amount (-)</label>
-								<input type="number" name="net_amount" class="form-control" max="0" value="-0.00" step=".01" data-error="Please enter net amount." required />
+								<input type="number" name="net_amount" class="form-control" max="0" value="-0.00" step=".01" data-error="Please enter VALID net amount." required />
 								<div class="help-block with-errors"></div>
 							</div>
 							<div class="form-group">
