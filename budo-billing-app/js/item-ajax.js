@@ -1,6 +1,5 @@
 $( document ).ready(function() {
 	
-	$dummy = "1234";
 	$('.add-info').submit(function(e) {
 		e.preventDefault();
 		$.ajax({
@@ -22,7 +21,7 @@ $( document ).ready(function() {
 				var responseObject = JSON.parse(response);
 				console.log(responseObject);
 				if(responseObject.message=="Billing Info Entered") {
-				/*	var htmlRow=`<tr>
+					/*var htmlRow=`<tr>
 									<td>${responseObject.info.Firm}</td>
 									<td>${responseObject.info.Office}</td>
 									<td>${responseObject.info.Account}</td>
@@ -31,7 +30,7 @@ $( document ).ready(function() {
 									<td>${responseObject.info.Off_Account}</td>
 									<td>${responseObject.info.Description}</td>
 									<td>${responseObject.info.Net_Amount}</td>
-									<td>${responseObject.info.Comment_Code}</td>							
+									<td>${responseObject.info.Comment_Code}</td>
 								</tr>`;
 					$('tbody').append(htmlRow);*/
 					var rows = '';
@@ -46,11 +45,12 @@ $( document ).ready(function() {
 					rows = rows + '<td>'+responseObject.info.Net_Amount+'</td>';
 					rows = rows + '<td>'+responseObject.info.Comment_Code+'</td>';
 					rows = rows + '<td data-id="'+responseObject.info.id+'">';
-					rows = rows + '<button data-toggle="modal" data-target="#edit-item" class="btn btn-primary edit-item">Edit</button> ';
-        			rows = rows + '<button class="btn btn-danger remove-item">Delete</button>';
+					rows = rows + '<button data-toggle="modal" data-target="#edit-item" class="edit-item">Edit</button> ';
+        			rows = rows + '<button class="remove-item">Delete</button>';
        				rows = rows + '</td>';
 	  				rows = rows + '</tr>';
 					$("tbody").append(rows);
+					toastr.success('ADDED!', 'Success', {timeout: 2000});
 				}
 			},
 			fail: function() {
@@ -60,8 +60,25 @@ $( document ).ready(function() {
 			$("#create-item").find("input[name='account']").val('');
 			$("#create-item").find("input[name='off_account']").val('');
 			$("#create-item").find("textarea[name='description']").val('');
-			$("#create-item").find("input[name='net_amount']").val('');
-			toastr.success('New Billing Info is Added!', 'Success Alert', {timeout: 5000});
+			$("#create-item").find("input[name='net_amount']").val('');			
 		});
-	})
+	});
+
+		/* Remove Item */
+	$("body").on("click",".remove-item",function(){
+		var id = $(this).parent("td").data('id');
+		var c_obj = $(this).parents("tr");
+		$.ajax({
+	    	dataType: 'json',
+		 	type:'POST',
+	    	url: 'api/delete.php',
+	    	data:{id:id}
+	    }).done(function(data){
+	        c_obj.remove();
+	        toastr.success('DELETED!', 'Success', {timeOut: 2000});
+	    });
+
+	});
+
+
 });
