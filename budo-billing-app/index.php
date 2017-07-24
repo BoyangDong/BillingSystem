@@ -12,6 +12,7 @@
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/1000hz-bootstrap-validator/0.11.5/validator.min.js"></script>
 	<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
     <link href="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Overpass|Quantico|Graduate|Ubuntu" rel="stylesheet">
 
 	<script type="text/javascript" language="javascript" src="js/item-ajax.js"></script>
 	<link rel="stylesheet" href="css/style.css"/>
@@ -25,7 +26,7 @@
 		<div class="container-fluid">
 		<div class="navbar-header">
 	    	<a class="navbar-brand" href="http://www.budoholdings.com/">
-	    	<img alt="Brand" id="budo_logo" src="images/budo_logo.jpg" >
+	    	<img alt="Brand" id="budo_logo" src="images/budo_logo.jpg">
 	      	</a>
 	    </div>
 	  </div>
@@ -33,7 +34,13 @@
 	<!--Container-->
 	<div class="container">
 		<div class="row">
-			<div class="col-lg-10"> <h2>Daily Billing System</h2></div>
+			<div class="col-lg-8"> <h2 id="header">Daily Billing System</h2></div>
+			<div class="col-lg-1"> 
+				<input type="button" class="btn btn-primary" value="New Sheet"/>
+			</div>
+			<div class="col-lg-1"> 
+				<input type="button" class="btn btn-warning" value="Adjustmnt"/>
+			</div>
 			<div class="col-lg-1">
 				<form method="post" action="api/export.php">
 					<input type="submit" name="export" id="export" class="btn btn-info" value="csv Export"/>
@@ -48,7 +55,7 @@
 
 		<!--Main Table Body-->
 		<div class="panel panel-info"> 
-			<div class="panel-heading"> Info Management </div>
+			<div class="panel-heading">Info Management </div>
 			<div class="panel-body">
 				<!--table class="table table-bordered"--> 
 				<table class="table table-bordered table-striped table-hover"> 
@@ -81,7 +88,7 @@
 				<div class="modal-content">
 					<div class="modal-header">
 						<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
-		        		<h4 class="modal-title" id="createLabel">Create New Billing Info</h4>
+		        		<h4 class="modal-title" id="createLabel"><strong>Create New Billing Info</strong></h4>
 		      		</div>
 			      	<div class="modal-body">
 			      		<form data-toggle="validator" action="api/create.php" class="add-info" method="POST">
@@ -146,7 +153,7 @@
 				<div class="modal-content">
 					<div class="modal-header">
 						<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
-		        		<h4 class="modal-title" id="editLabel">Edit</h4>
+		        		<h4 class="modal-title" id="editLabel"><strong>Edit Panel</strong></h4>
 		      		</div>
 			      	<div class="modal-body">
 			      		<form data-toggle="validator" action="api/update.php" class="add-info" method="POST">
@@ -207,9 +214,7 @@
 		</div>
 	</div>
 	<footer class="footer">
-		<div class="container">
-		<p class="text-muted">Version 0.1.0</p>
-	</div>
+		Version 0.1.0
 	</footer>
 	<noscript> 
 		<h3>This site requires JavaScript. </h3>

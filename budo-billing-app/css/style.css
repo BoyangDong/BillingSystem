@@ -1,5 +1,37 @@
+#header {
+	text-shadow: 1px 1px 1px #aaa;
+	font-family: 'Ubuntu', cursive;
+}
+
+th {
+	font-family: 'Ubuntu', cursive;
+}
+
+.panel-heading {
+	font-family: 'Ubuntu', cursive;
+}
+
+.btn{
+	font-family: 'Ubuntu', cursive;
+}
+
+.modal-body .control-label, .modal-header .modal-title{
+	font-family: 'Ubuntu', cursive;
+}
+
+.footer {
+	position: absolute;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	padding: 1rem;
+	background-color: #efefef;
+	text-align: center;
+	text-shadow: .5px .5px .5px #aaa;
+	font-family: 'Ubuntu', cursive;
+}
+
 #budo_logo {
 	width : 125px;
 	height : 25px;
 }
-
