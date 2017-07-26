@@ -1,4 +1,6 @@
 $( document ).ready(function() {
+
+	var tableRowId;
 	
 	/* Insert into DB and show on the page*/
 	$('.add-info').submit(function(e) {
@@ -22,18 +24,6 @@ $( document ).ready(function() {
 				var responseObject = JSON.parse(response);
 				console.log(responseObject);
 				if(responseObject.message=="Billing Info Entered") {
-					/*var htmlRow=`<tr>
-									<td>${responseObject.info.Firm}</td>
-									<td>${responseObject.info.Office}</td>
-									<td>${responseObject.info.Account}</td>
-									<td>${responseObject.info.Currency}</td>
-									<td>${responseObject.info.Off_Office}</td>
-									<td>${responseObject.info.Off_Account}</td>
-									<td>${responseObject.info.Description}</td>
-									<td>${responseObject.info.Net_Amount}</td>
-									<td>${responseObject.info.Comment_Code}</td>
-								</tr>`;
-					$('tbody').append(htmlRow);*/
 					var rows = '';
 					rows = rows + '<tr>';
 					rows = rows + '<td>'+responseObject.info.Firm+'</td>';
@@ -64,7 +54,7 @@ $( document ).ready(function() {
 			$("#create-item").find("input[name='net_amount']").val('');			
 		});
 	});
-	var tableRowId;
+
 	/* Edit Item*/
 	$("body").on("click", ".edit-item", function(){
 		tableRowId = $(this).parents('tr').index();
@@ -164,6 +154,64 @@ $( document ).ready(function() {
 	        c_obj.remove();
 	        toastr.success('DELETED!', 'Success', {timeOut: 2000});
 	    });
+
+	});
+
+	/*Send Email Ajax*/
+	$(".send-email").click(function(e){
+		e.preventDefault();
+		var recipients = [];
+		$('input[type="checkbox"]').each(function(i) {
+			if($(this).is(":checked")) {
+				recipients.push($(this).val());	
+			}
+		});
+		console.log("hello world");
+		console.log(("input[type=checkbox]:checked").length);
+		console.log(recipients);
+
+		$.ajax({
+			url: 'api/send_email.php', 
+			method: 'POST',
+			data: {
+				mail_to: recipients,
+				mail_sub: $('input[name="mail_sub"]').val(),
+				mail_msg: $('textarea[name="mail_msg"]').val()
+			},
+			success: function(response) {
+				console.log(response);
+				/*console.log('email ajax done');
+				console.log('hello world');*/
+				if(true){					
+					toastr.success('Email Sent!', 'Success', {timeOut: 5000});
+					$(".modal").modal('hide');
+				}else{
+					toastr.error('Issue Happened while Sending Email..','Failed..', {timeOut: 5000});
+				}
+			},
+			fail: function() {
+				toastr.error('Failed..', 'Send Email AJAX Failed..', {timeOut: 5000});
+			}
+		}).done(function(data){
+			
+		});
+	});
+
+	/*Delete All Event*/
+	$("#confirm_delete").click(function(e){
+		$.ajax({
+			url: 'api/delete_all.php',
+			method: 'GET',
+			success: function(message) {
+				console.log(message);
+				if(message == 1){
+					$("tbody tr").remove();
+					toastr.success('All Gone!', 'Success', {timeOut: 5000});
+				}else{
+					toastr.error('Issue Happened while Start New..','Failed..', {timeOut: 5000});
+				}
+			}
+		});
 
 	});
 

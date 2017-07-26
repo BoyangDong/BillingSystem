@@ -1,17 +1,14 @@
 #header {
 	text-shadow: 1px 1px 1px #aaa;
 	font-family: 'Ubuntu', cursive;
+	margin: 0;
 }
 
-th {
+th, p, button, input {
 	font-family: 'Ubuntu', cursive;
 }
 
 .panel-heading {
-	font-family: 'Ubuntu', cursive;
-}
-
-.btn{
 	font-family: 'Ubuntu', cursive;
 }
 
@@ -20,7 +17,7 @@ th {
 }
 
 .footer {
-	position: absolute;
+	position: fixed;
 	right: 0;
 	bottom: 0;
 	left: 0;
@@ -34,4 +31,12 @@ th {
 #budo_logo {
 	width : 125px;
 	height : 25px;
+}
+
+.header-row{
+	margin-bottom: 20px;
+}
+
+#submit-form{
+	margin-bottom: 50px;
 }

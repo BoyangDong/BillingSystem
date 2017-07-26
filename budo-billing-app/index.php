@@ -15,6 +15,7 @@
     <link href="https://fonts.googleapis.com/css?family=Overpass|Quantico|Graduate|Ubuntu" rel="stylesheet">
 
 	<script type="text/javascript" language="javascript" src="js/item-ajax.js"></script>
+	<script type="text/javascript" language="javascript" src="js/controller.js"></script>
 	<link rel="stylesheet" href="css/style.css"/>
 	
 	<title>Budo Billing System</title>  	
@@ -33,10 +34,11 @@
 	</nav>
 	<!--Container-->
 	<div class="container">
-		<div class="row">
+		<div class="row header-row">
 			<div class="col-lg-8"> <h2 id="header">Daily Billing System</h2></div>
 			<div class="col-lg-1"> 
-				<input type="button" class="btn btn-primary" value="New Sheet"/>
+				<input type="button" class="btn btn-danger" id="start_new" value="Start New" data-toggle="modal" data-target="#start-new-modal"/>
+				<?php include 'modals/start-new-modal.php'; ?>
 			</div>
 			<div class="col-lg-1"> 
 				<input type="button" class="btn btn-warning" value="Adjustmnt"/>
@@ -80,141 +82,26 @@
 				<!--Pagination-->
 				<ul id="pagination" class="pagination-sm">
 			</div>
-		</div>
-
-		<!--create item modal-->
-		<div class="modal fade" id="create-item" tabindex="-1" role="dialog" aria-labelledby="createLabel">
-			<div class="modal-dialog" role="document">
-				<div class="modal-content">
-					<div class="modal-header">
-						<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
-		        		<h4 class="modal-title" id="createLabel"><strong>Create New Billing Info</strong></h4>
-		      		</div>
-			      	<div class="modal-body">
-			      		<form data-toggle="validator" action="api/create.php" class="add-info" method="POST">
-			      			<div class="form-group">
-								<label class="control-label" for="title">Firm</label>
-								<input type="text" name="firm" class="form-control" value="D" maxlength="1" data-error="Please enter title." required />
-								<div class="help-block with-errors"></div>
-							</div>
-							<div class="form-group">
-								<label class="control-label" for="title">Office</label>
-								<input type="text" name="office" class="form-control" value="UDN" maxlength="3" data-error="Please enter office." required />
-								<div class="help-block with-errors"></div>
-							</div>
-							<div class="form-group">
-								<label class="control-label" for="title">Account</label>
-								<input type="text" name="account" class="form-control" data-error="Please enter account." required />
-								<div class="help-block with-errors"></div>
-							</div>
-							<div class="form-group">
-								<label class="control-label" for="title">Currency</label>
-								<input type="text" name="currency" class="form-control" value="U1" maxlength="2" data-error="Please enter currency." required />
-								<div class="help-block with-errors"></div>
-							</div>
-							<div class="form-group">
-								<label class="control-label" for="title">Off Office</label>
-								<input type="text" name="off_office" class="form-control" value="UDN" maxlength="3" data-error="Please enter office." required />
-								<div class="help-block with-errors"></div>
-							</div>
-							<div class="form-group">
-								<label class="control-label" for="title">Off Account</label>
-								<input type="text" name="off_account" class="form-control" data-error="Please enter off account." required />
-								<div class="help-block with-errors"></div>
-							</div>
-
-							<div class="form-group">
-								<label class="control-label" for="title">Net Amount (-)</label>
-								<input type="number" name="net_amount" class="form-control" max="0" value="-0.00" step=".01" data-error="Please enter a VALID net amount." required />
-								<div class="help-block with-errors"></div>
-							</div>
-							<div class="form-group">
-								<label class="control-label" for="title">Description</label>
-								<textarea name="description" class="form-control" data-error="Please enter description." required></textarea>
-								<div class="help-block with-errors"></div>
-							</div>
-							<div class="form-group">
-								<label class="control-label" for="title">Comment Code</label>
-								<input type="text" name="comment_code" class="form-control" value="R" maxlength="1" data-error="Please enter comment code." required />
-								<div class="help-block with-errors"></div>
-							</div>
-							<div class="form-group">
-								<button type="submit" id="submit" class="btn crud-submit btn-success">Submit</button>
-							</div>
-			      		</form>
-					</div>
-				</div>
-			</div>
-		</div>
-
-		<!--EDIT ITEM MODAL-->
-		<div class="modal fade" id="edit-item" tabindex="-1" role="dialog" aria-labelledby="editLabel">
-			<div class="modal-dialog" role="document">
-				<div class="modal-content">
-					<div class="modal-header">
-						<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
-		        		<h4 class="modal-title" id="editLabel"><strong>Edit Panel</strong></h4>
-		      		</div>
-			      	<div class="modal-body">
-			      		<form data-toggle="validator" action="api/update.php" class="add-info" method="POST">
-							<input type="hidden" name="id" class="edit-id"> <!--Different from Create Modal-->
-			      			<div class="form-group">
-								<label class="control-label" for="title">Firm</label>
-								<input type="text" name="firm" class="form-control" value="D" maxlength="1" data-error="Please enter title." required />
-								<div class="help-block with-errors"></div>
-							</div>
-							<div class="form-group">
-								<label class="control-label" for="title">Office</label>
-								<input type="text" name="office" class="form-control" value="UDN" maxlength="3" data-error="Please enter office." required />
-								<div class="help-block with-errors"></div>
-							</div>
-							<div class="form-group">
-								<label class="control-label" for="title">Account</label>
-								<input type="text" name="account" class="form-control" data-error="Please enter account." required />
-								<div class="help-block with-errors"></div>
-							</div>
-							<div class="form-group">
-								<label class="control-label" for="title">Currency</label>
-								<input type="text" name="currency" class="form-control" value="U1" maxlength="2" data-error="Please enter currency." required />
-								<div class="help-block with-errors"></div>
-							</div>
-							<div class="form-group">
-								<label class="control-label" for="title">Off Office</label>
-								<input type="text" name="off_office" class="form-control" value="UDN" maxlength="3" data-error="Please enter office." required />
-								<div class="help-block with-errors"></div>
-							</div>
-							<div class="form-group">
-								<label class="control-label" for="title">Off Account</label>
-								<input type="text" name="off_account" class="form-control" data-error="Please enter off account." required />
-								<div class="help-block with-errors"></div>
-							</div>
-
-							<div class="form-group">
-								<label class="control-label" for="title">Net Amount (-)</label>
-								<input type="number" name="net_amount" class="form-control" max="0" value="-0.00" step=".01" data-error="Please enter a VALID net amount." required />
-								<div class="help-block with-errors"></div>
-							</div>
-							<div class="form-group">
-								<label class="control-label" for="title">Description</label>
-								<textarea name="description" class="form-control" data-error="Please enter description." required></textarea>
-								<div class="help-block with-errors"></div>
-							</div>
-							<div class="form-group">
-								<label class="control-label" for="title">Comment Code</label>
-								<input type="text" name="comment_code" class="form-control" value="R" maxlength="1" data-error="Please enter comment code." required />
-								<div class="help-block with-errors"></div>
-							</div>
-							<div class="form-group">
-								<button type="submit" id="submit" class="btn crud-submit-edit btn-success">Update</button>
-							</div>
-			      		</form>
-					</div>
-				</div>
-			</div>
-		</div>
+		</div>	
+		<?php
+			include 'modals/create-modal.php';
+			include 'modals/edit-modal.php';
+		?>
 	</div>
+	<!--Submit for Approval Modal-->
+	<div>
+		<div class="col-lg-9"></div>
+		<div class="col-lg-3">
+			<!--form method="post" action="api/export.php"-->
+			<button type="submit" class="btn btn-success" id="submit-form" data-toggle="modal" data-target="#submit-modal">SUBMIT</button>
+		</div>
+		<?php
+			include 'modals/submit-modal.php';
+		?>
+	</div>
+
 	<footer class="footer">
-		Version 0.1.0
+		Version 1.0
 	</footer>
 	<noscript> 
 		<h3>This site requires JavaScript. </h3>
