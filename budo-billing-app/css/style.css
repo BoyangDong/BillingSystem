@@ -40,3 +40,24 @@ th, p, button, input {
 #submit-form{
 	margin-bottom: 50px;
 }
+
+#pencil {
+	font-size:24px; 
+	cursor: pointer;
+	position: relative;
+	top: 2px;
+	left: 3px;
+}
+#trash {
+	font-size:24px; 
+	cursor: pointer;
+	position: relative;
+	left: 5px;
+}
+#adj {
+	font-size:24px; 
+	cursor: pointer;
+	padding-left: 5px;
+	position: relative;
+	left: 7px;
+}

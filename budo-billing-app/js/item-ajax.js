@@ -9,6 +9,7 @@ $( document ).ready(function() {
 			url: 'api/create.php',
 			method: 'POST',
 			data: {
+				invoice_number: $('input[name="invoice_number"]').val(),
 				firm: $('input[name="firm"]').val(),
 				office: $('input[name="office"]').val(),
 				account: $('input[name="account"]').val(),
@@ -26,6 +27,7 @@ $( document ).ready(function() {
 				if(responseObject.message=="Billing Info Entered") {
 					var rows = '';
 					rows = rows + '<tr>';
+					rows = rows + '<td>'+responseObject.info.Invoice_Number+'</td>';
 					rows = rows + '<td>'+responseObject.info.Firm+'</td>';
 					rows = rows + '<td>'+responseObject.info.Office+'</td>';
 					rows = rows + '<td>'+responseObject.info.Account+'</td>';
@@ -36,8 +38,9 @@ $( document ).ready(function() {
 					rows = rows + '<td>'+responseObject.info.Net_Amount+'</td>';
 					rows = rows + '<td>'+responseObject.info.Comment_Code+'</td>';
 					rows = rows + '<td data-id="'+responseObject.info.id+'">';
-					rows = rows + '<button data-toggle="modal" data-target="#edit-item" class="edit-item">Edit</button> ';
-        			rows = rows + '<button class="remove-item">Delete</button>';
+					rows = rows + '<i class="fa fa-pencil-square-o edit-item" id="pencil" data-toggle="modal" data-target="#edit-item" ></i> ';
+        			rows = rows + '<i class="fa fa-trash-o remove-item" id="trash"></i>';
+        			rows = rows + '<i class="fa fa-adjust adjust-item" id="adj"></i>';
        				rows = rows + '</td>';
 	  				rows = rows + '</tr>';
 					$("tbody").append(rows);
@@ -59,16 +62,19 @@ $( document ).ready(function() {
 	$("body").on("click", ".edit-item", function(){
 		tableRowId = $(this).parents('tr').index();
 		var id = 			$(this).parent("td").data('id');
-		var firm = 			$(this).parents("tr").find("td").eq(0).text(); 
-		var office = 		$(this).parents("tr").find("td").eq(1).text(); 
-		var account = 		$(this).parents("tr").find("td").eq(2).text(); 
-		var currency = 		$(this).parents("tr").find("td").eq(3).text(); 
-		var off_office = 	$(this).parents("tr").find("td").eq(4).text(); 
-		var off_account = 	$(this).parents("tr").find("td").eq(5).text(); 
-		var description = 	$(this).parents("tr").find("td").eq(6).text(); 
-		var net_amount = 	$(this).parents("tr").find("td").eq(7).text(); 
-		var comment_code = 	$(this).parents("tr").find("td").eq(8).text(); 
 
+		var invoice_number =$(this).parents("tr").find("td").eq(0).text(); 
+		var firm = 			$(this).parents("tr").find("td").eq(1).text(); 
+		var office = 		$(this).parents("tr").find("td").eq(2).text(); 
+		var account = 		$(this).parents("tr").find("td").eq(3).text(); 
+		var currency = 		$(this).parents("tr").find("td").eq(4).text(); 
+		var off_office = 	$(this).parents("tr").find("td").eq(5).text(); 
+		var off_account = 	$(this).parents("tr").find("td").eq(6).text(); 
+		var description = 	$(this).parents("tr").find("td").eq(7).text(); 
+		var net_amount = 	$(this).parents("tr").find("td").eq(8).text(); 
+		var comment_code = 	$(this).parents("tr").find("td").eq(9).text(); 
+
+		$("#edit-item").find("input[name='invoice_number']").val(invoice_number);
 		$("#edit-item").find("input[name='firm']").val(firm);
 		$("#edit-item").find("input[name='office']").val(office);
 		$("#edit-item").find("input[name='account']").val(account);
@@ -89,6 +95,7 @@ $( document ).ready(function() {
 		var form_action = $("#edit-item").find("form").attr("action");
 		var id = $("#edit-item").find(".edit-id").val(); 
 
+		var invoice_number = $("#edit-item").find("input[name='invoice_number']").val();
 		var firm = $("#edit-item").find("input[name='firm']").val();
 		var office = $("#edit-item").find("input[name='office']").val();
 		var account = $("#edit-item").find("input[name='account']").val();
@@ -99,11 +106,12 @@ $( document ).ready(function() {
 		var net_amount = $("#edit-item").find("input[name='net_amount']").val();
 		var comment_code = $("#edit-item").find("input[name='comment_code']").val();
 
-		if(firm != '' && office != '' && account != '' && currency != '' && off_office != '' && off_account != '' && description != '' && comment_code != ''){
+		if(invoice_number != '' && firm != '' && office != '' && account != '' && currency != '' && off_office != '' && off_account != '' && description != '' && comment_code != ''){
 			$.ajax({
 				type: 'POST',
 				url: "api/update.php",
 				data:{
+					invoice_number: invoice_number, 
 					firm: firm,
 					office: office,
 					account: account,
@@ -119,15 +127,16 @@ $( document ).ready(function() {
 					console.log(response);
 					var tableRow = $('tbody tr').eq(tableRowId);
 					var responseObject = JSON.parse(response);
-					tableRow.find('td').eq(0).text(responseObject.Firm);
-					tableRow.find('td').eq(1).text(responseObject.Office);
-					tableRow.find('td').eq(2).text(responseObject.Account);
-					tableRow.find('td').eq(3).text(responseObject.Currency);
-					tableRow.find('td').eq(4).text(responseObject.Off_Office);
-					tableRow.find('td').eq(5).text(responseObject.Off_Account);
-					tableRow.find('td').eq(6).text(responseObject.Description);
-					tableRow.find('td').eq(7).text(responseObject.Net_Amount);
-					tableRow.find('td').eq(8).text(responseObject.Comment_Code);
+					tableRow.find('td').eq(0).text(responseObject.Invoice_Number);
+					tableRow.find('td').eq(1).text(responseObject.Firm);
+					tableRow.find('td').eq(2).text(responseObject.Office);
+					tableRow.find('td').eq(3).text(responseObject.Account);
+					tableRow.find('td').eq(4).text(responseObject.Currency);
+					tableRow.find('td').eq(5).text(responseObject.Off_Office);
+					tableRow.find('td').eq(6).text(responseObject.Off_Account);
+					tableRow.find('td').eq(7).text(responseObject.Description);
+					tableRow.find('td').eq(8).text(responseObject.Net_Amount);
+					tableRow.find('td').eq(9).text(responseObject.Comment_Code);
 				}
 			}).done(function(data){
 				console.log('ajax done');

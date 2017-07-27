@@ -5,7 +5,8 @@
 
 	$post = $_POST;
 
-	$sql = "UPDATE billing_info SET  Firm= '".$post['firm']."'
+	$sql = "UPDATE billing_info SET  Invoice_Number= '".$post['invoice_number']."'
+									,Firm= '".$post['firm']."'
 									,Office = '".$post['office']."' 
 									,Account = '".$post['account']."' 
 									,Currency = '".$post['currency']."' 

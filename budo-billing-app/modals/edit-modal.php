@@ -9,6 +9,11 @@
 			      	<div class="modal-body">
 			      		<form data-toggle="validator" action="api/update.php" class="add-info" method="POST">
 							<input type="hidden" name="id" class="edit-id"> <!--Different from Create Modal-->
+							<div class="form-group">
+								<label class="control-label" for="title">Invoice #</label>
+								<input type="text" name="invoice_number" class="form-control" value="#" data-error="Please enter invoice # starting with # sign." required />
+								<div class="help-block with-errors"></div>
+							</div>
 			      			<div class="form-group">
 								<label class="control-label" for="title">Firm</label>
 								<input type="text" name="firm" class="form-control" value="D" maxlength="1" data-error="Please enter title." required />

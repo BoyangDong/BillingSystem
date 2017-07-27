@@ -15,8 +15,11 @@
     <link href="https://fonts.googleapis.com/css?family=Overpass|Quantico|Graduate|Ubuntu" rel="stylesheet">
 
 	<script type="text/javascript" language="javascript" src="js/item-ajax.js"></script>
-	<script type="text/javascript" language="javascript" src="js/controller.js"></script>
+	<script type="text/javascript" language="javascript" src="js/BootSideMenu.js"></script>
+	<script type="text/javascript" language="javascript" src="js/slide-panel.js"></script>
 	<link rel="stylesheet" href="css/style.css"/>
+	<link rel="stylesheet" href="css/BootSideMenu.css"/>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 	
 	<title>Budo Billing System</title>  	
 </head>
@@ -63,6 +66,7 @@
 				<table class="table table-bordered table-striped table-hover"> 
 					<thead> 
 						<tr> 
+							<th>Invoice #</th>
 							<th>Firm</th>
 							<th>Office</th>
 							<th>Account</th>
@@ -71,8 +75,8 @@
 							<th>Off Account</th>
 							<th>Description</th>
 							<th>Net Amount</th>
-							<th>Comment Code</th>
-							<th width="140px">Action</th>
+							<th>Comment</th>
+							<th width="100px">Action</th>
 						</tr>
 					</thead>
 				<tbody>
@@ -99,7 +103,9 @@
 			include 'modals/submit-modal.php';
 		?>
 	</div>
-
+	<div id="sidemenu"> 
+		
+	</div>
 	<footer class="footer">
 		Version 1.0
 	</footer>
