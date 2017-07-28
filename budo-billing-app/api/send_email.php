@@ -1,12 +1,25 @@
 <?php
 	
+/*	print_r($_FILES);
+	print_r($_POST);*/
+
 	require '../PHPMailer/PHPMailerAutoload.php';
 	 
-	$mailto = $_POST['mail_to'];
+	$mailto = $_POST['recipients'];
 	$mailSub = $_POST['mail_sub'];
 	$mailMsg = $_POST['mail_msg'];
 
 	$mail = new PHPMailer();
+
+	$file = "attachment/" . basename($_FILES['sheet_attached']['name']); 
+	echo "<pre>";
+	print_r($_FILES);
+
+	if(move_uploaded_file($_FILES['sheet_attached']['tmp_name'], $file)){
+		$mail ->addAttachment($file);		
+	}
+	// previous issue is that ajax is still trying to process the form and the ajax does not support file upload
+	//need to make the ajax support file upload and we'll be good yes open it
 	$mail ->isSMTP();
 	$mail ->SMTPDebug = 0;
 	$mail ->SMTPAuth = true;
@@ -19,6 +32,7 @@
 	$mail ->setFrom("test.budo@gmail.com", "Budo Gmail");
 	$mail ->Subject = $mailSub;
 	$mail ->Body = $mailMsg;
+
 	foreach ($mailto as $r) {
 		$mail ->addAddress($r);
 	}

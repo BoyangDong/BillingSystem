@@ -166,27 +166,19 @@ $( document ).ready(function() {
 
 	});
 
-	/*Send Email Ajax*/
-	$(".send-email").click(function(e){
+	/*Send Email Ajax perfect*/
+	$("form[name='sendMail']").submit(function(e){
 		e.preventDefault();
-		var recipients = [];
-		$('input[type="checkbox"]').each(function(i) {
-			if($(this).is(":checked")) {
-				recipients.push($(this).val());	
-			}
-		});
-		console.log("hello world");
-		console.log(("input[type=checkbox]:checked").length);
-		console.log(recipients);
+		var formData = new FormData(this);
 
 		$.ajax({
 			url: 'api/send_email.php', 
 			method: 'POST',
-			data: {
-				mail_to: recipients,
-				mail_sub: $('input[name="mail_sub"]').val(),
-				mail_msg: $('textarea[name="mail_msg"]').val()
-			},
+			data: formData,
+			async: false,
+			cache: false,
+			contentType: false,
+			processData: false,
 			success: function(response) {
 				console.log(response);
 				/*console.log('email ajax done');

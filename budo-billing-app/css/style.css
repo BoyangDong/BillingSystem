@@ -4,7 +4,7 @@
 	margin: 0;
 }
 
-th, p, button, input {
+th, p, button, input, textarea {
 	font-family: 'Ubuntu', cursive;
 }
 
@@ -60,4 +60,21 @@ th, p, button, input {
 	padding-left: 5px;
 	position: relative;
 	left: 7px;
+}
+
+.fa-adjust:hover {
+    color: red;
+}
+
+.fa-trash-o:hover {
+    color: red;
+}
+
+.fa-pencil-square-o:hover {
+    color: red;
+}
+
+
+.form-group{
+	margin-bottom: 5px;
 }
