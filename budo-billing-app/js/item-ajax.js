@@ -51,10 +51,16 @@ $( document ).ready(function() {
 				alert('An error occurred');
 			}
 		}).done(function(data){
+			$("#create-item").find("input[name='invoice_number']").val('#');
+			$("#create-item").find("input[name='firm']").val('D');
+			$("#create-item").find("input[name='office']").val('UDN');
 			$("#create-item").find("input[name='account']").val('');
+			$("#create-item").find("input[name='currency']").val('U1');
+			$("#create-item").find("input[name='off_office']").val('UDN');
 			$("#create-item").find("input[name='off_account']").val('');
-			$("#create-item").find("textarea[name='description']").val('');
-			$("#create-item").find("input[name='net_amount']").val('');			
+			$("#create-item").find("input[name='net_amount']").val('');	
+			$("#create-item").find("textarea[name='description']").val('');				
+			$("#create-item").find("input[name='comment_code']").val('R');			
 		});
 	});
 
@@ -166,7 +172,7 @@ $( document ).ready(function() {
 
 	});
 
-	/*Send Email Ajax perfect*/
+	/*Send Email Ajax*/
 	$("form[name='sendMail']").submit(function(e){
 		e.preventDefault();
 		var formData = new FormData(this);
@@ -216,5 +222,8 @@ $( document ).ready(function() {
 
 	});
 
+	$('#adj').click(function(e){
+		alert("alert alert adjust-item");
+	});
 
 });
