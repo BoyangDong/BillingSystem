@@ -116,6 +116,13 @@
             }
         });
 
+        $("body").on("click", "#show_adjustment_history", function() {
+        	toggle();
+            if (options.onTogglerClick !== undefined) {
+                options.onTogglerClick(menu);
+            }
+        });
+
         menu.off("click", ".list-group-item");
         menu.on("click", ".list-group-item", function () {
             menu.find(".list-group-item").each(function () {

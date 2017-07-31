@@ -222,8 +222,5 @@ $( document ).ready(function() {
 
 	});
 
-	$('#adj').click(function(e){
-		alert("alert alert adjust-item");
-	});
 
 });

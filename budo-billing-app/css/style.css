@@ -4,15 +4,11 @@
 	margin: 0;
 }
 
-th, p, button, input, textarea {
+th, p, button, input, textarea, h4 {
 	font-family: 'Ubuntu', cursive;
 }
 
-.panel-heading {
-	font-family: 'Ubuntu', cursive;
-}
-
-.modal-body .control-label, .modal-header .modal-title{
+.modal-body .control-label, .modal-header .modal-title .panel-heading {
 	font-family: 'Ubuntu', cursive;
 }
 
@@ -54,6 +50,16 @@ th, p, button, input, textarea {
 	position: relative;
 	left: 5px;
 }
+
+#delete-adjustment{
+	cursor:pointer;
+}
+
+#edit-adjustment{
+	margin-left:5px;
+	cursor: pointer;
+}
+
 #adj {
 	font-size:24px; 
 	cursor: pointer;
@@ -62,19 +68,36 @@ th, p, button, input, textarea {
 	left: 7px;
 }
 
+#refresh {
+	font-size: 16px; 
+	cursor: pointer;
+	margin-left: 225px;
+}
+
 .fa-adjust:hover {
-    color: red;
+    color: blue;
 }
 
 .fa-trash-o:hover {
     color: red;
 }
 
-.fa-pencil-square-o:hover {
-    color: red;
+.edit-adjustment:hover {
+	color: green;
 }
 
+
+.edit-item:hover {
+    color: green;
+}
+
+
+.fa-refresh:hover {
+    color: red;
+}
 
 .form-group{
 	margin-bottom: 5px;
 }
+
+

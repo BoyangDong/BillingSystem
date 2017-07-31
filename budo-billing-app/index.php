@@ -44,7 +44,7 @@
 				<?php include 'modals/start-new-modal.php'; ?>
 			</div>
 			<div class="col-lg-1"> 
-				<input type="button" class="btn btn-warning" value="Adjustmnt"/>
+				<input type="button" class="btn btn-warning" id="show_adjustment_history" value="Adjustmnt"/>
 			</div>
 			<div class="col-lg-1">
 				<form method="post" action="api/export.php">
@@ -104,7 +104,9 @@
 		?>
 	</div>
 	<div id="sidemenu"> 
-		
+		<?php 
+			include 'modals/adjustment_panel/adjustment-history.php'
+		?>
 	</div>
 	<footer class="footer">
 		Version 1.0
