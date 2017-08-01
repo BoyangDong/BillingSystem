@@ -51,13 +51,17 @@
 							</div>
 							<div class="form-group">
 								<label class="control-label" for="title">Description</label>
-								<textarea name="description" class="form-control" data-error="Please enter description." required></textarea>
+								<textarea rows="1" name="description" class="form-control" data-error="Please enter description." required></textarea>
 								<div class="help-block with-errors"></div>
 							</div>
 							<div class="form-group">
 								<label class="control-label" for="title">Comment Code</label>
 								<input type="text" name="comment_code" class="form-control" value="R" maxlength="1" data-error="Please enter comment code." required />
 								<div class="help-block with-errors"></div>
+							</div>
+							<div class="form-group">
+								<label class="control-label" for="title">Adjust/Comments</label>
+								<input type="text" name="comments" id="comments" class="form-control" style="margin-bottom: 20px;"/>
 							</div>
 							<div class="form-group">
 								<button type="submit" id="submit" class="btn crud-submit btn-success">Create</button>

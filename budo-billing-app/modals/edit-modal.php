@@ -61,6 +61,10 @@
 								<div class="help-block with-errors"></div>
 							</div>
 							<div class="form-group">
+								<label class="control-label" for="title">Adjust/Comments</label>
+								<input type="text" name="comments" id="comments" class="form-control" style="margin-bottom: 20px;"/>
+							</div>
+							<div class="form-group">
 								<button type="submit" id="submit" class="btn crud-submit-edit btn-success">Update</button>
 							</div>
 			      		</form>

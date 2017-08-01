@@ -15,6 +15,7 @@
 									,Description = '".$post['description']."' 
 									,Net_Amount = '".$post['net_amount']."' 
 									,Comment_Code = '".$post['comment_code']."' 
+									,Comments = '".$post['comments']."' 
 			WHERE id = '".$id."'";
 
 	//Prepare Statement

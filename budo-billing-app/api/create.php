@@ -15,12 +15,13 @@ require 'db_config.php';
 	$d = trim($post['description']);
 	$na = trim($post['net_amount']);
 	$cc = trim($post['comment_code']);
+	$c = trim($post['comments']);
 	
-	$sql = "INSERT INTO billing_info(Invoice_Number, Firm, Office, Account, Currency, Off_Office, Off_Account, Description, `Net_Amount`, Comment_Code) 
-			VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+	$sql = "INSERT INTO billing_info(Invoice_Number, Firm, Office, Account, Currency, Off_Office, Off_Account, Description, `Net_Amount`, Comment_Code, Comments) 
+			VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 
 	$stmt = $db->prepare($sql);
-	$insert = $stmt->execute([$in, $f, $o, $a, $c, $oo, $oa, $d, $na, $cc]);
+	$insert = $stmt->execute([$in, $f, $o, $a, $c, $oo, $oa, $d, $na, $cc, $c]);
 
 	if(count($insert)){
 		$message = 'Billing Info Entered';

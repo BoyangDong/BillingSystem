@@ -29,7 +29,7 @@
 	<nav class="navbar navbar-default">
 		<div class="container-fluid">
 		<div class="navbar-header">
-	    	<a class="navbar-brand" href="http://www.budoholdings.com/">
+	    	<a class="navbar-brand">
 	    	<img alt="Brand" id="budo_logo" src="images/budo_logo.jpg">
 	      	</a>
 	    </div>
@@ -38,21 +38,21 @@
 	<!--Container-->
 	<div class="container">
 		<div class="row header-row">
-			<div class="col-lg-8"> <h2 id="header">Daily Billing System</h2></div>
+			<div class="col-lg-9"> <h2 id="header">Daily Billing System</h2></div>
 			<div class="col-lg-1"> 
 				<input type="button" class="btn btn-danger" id="start_new" value="Start New" data-toggle="modal" data-target="#start-new-modal"/>
 				<?php include 'modals/start-new-modal.php'; ?>
 			</div>
-			<div class="col-lg-1"> 
+			<!--div class="col-lg-1"> 
 				<input type="button" class="btn btn-warning" id="show_adjustment_history" value="Adjustmnt"/>
-			</div>
+			</div-->
 			<div class="col-lg-1">
 				<form method="post" action="api/export.php">
 					<input type="submit" name="export" id="export" class="btn btn-info" value="csv Export"/>
 				</form>
 			</div>
 			<div class="col-lg-1"> 
-				<button type="button" id="createBtn" class="btn btn-success" data-toggle="modal" data-target="#create-item"> 
+				<button type="button" id="createBtn" class="btn btn-info" data-toggle="modal" data-target="#create-item"> 
 					Create 
 				</button>	
 			</div>
@@ -76,7 +76,7 @@
 							<th>Description</th>
 							<th>Net Amount</th>
 							<th>Comment</th>
-							<th width="100px">Action</th>
+							<th width="75px">Action</th>
 						</tr>
 					</thead>
 				<tbody>
@@ -103,11 +103,11 @@
 			include 'modals/submit-modal.php';
 		?>
 	</div>
-	<div id="sidemenu"> 
+	<!--div id="sidemenu"> 
 		<?php 
-			include 'modals/adjustment_panel/adjustment-history.php'
+		//	include 'modals/adjustment_panel/adjustment-history.php'
 		?>
-	</div>
+	</div-->
 	<footer class="footer">
 		Version 1.0
 	</footer>

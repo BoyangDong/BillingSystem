@@ -4,8 +4,6 @@ $(document).ready(function(){
 		pushBody: false
 	});
 
-
-
 	/*Adjustment History Panel Funtionalities*/
 	$("body").on("click",".remove-adjustment", function(){
 		console.log($(this).parents('div').data("id")); //.data('name')
@@ -23,11 +21,7 @@ $(document).ready(function(){
 	        h_obj.remove();
 	        toastr.success('ADJUSTMENT DELETED!', 'Success', {timeOut: 2000});
 	    });
-
-
 	});
-
-
 
 });
 
