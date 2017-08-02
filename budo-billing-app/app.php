@@ -32,7 +32,6 @@
 	<title>Budo Billing System</title>  	
 </head>
 <body>
-
 	<!--Header Bar-->
 	<nav class="navbar navbar-default">
 		<div class="container-fluid">
@@ -40,7 +39,6 @@
 	    	<a class="navbar-brand">
 	    	<img alt="Brand" id="budo_logo" src="images/budo_logo.jpg">
 	      	</a>
-	      	
 	    	<form method="post" action="logout.php">
 		    	<button type="submit" class="btn btn-default btn-sm" id="logoutLblPos">
 	        		<span class="glyphicon glyphicon-log-out"></span> Logout
@@ -51,15 +49,21 @@
 	</nav>
 	<!--Container-->
 	<div class="container">
+		<!--Synchronization Icon-->
+		<form method="POST" action="api/sync.php">
+			<i class="fa fa-refresh sync" data-toggle="tooltip" aria-hidden="true" title="Sync with DB"></i>
+		</form>
+
+		<!--main-->
 		<div class="row header-row">
-			<div class="col-lg-9"> <h2 id="header">Daily Billing System</h2></div>
+			<div class="col-lg-9"> <h2 id="header">Daily Billing System</h2></div> 
 			<div class="col-lg-1"> 
 				<input type="button" class="btn btn-danger" id="start_new" value="Start New" data-toggle="modal" data-target="#start-new-modal"/>
 				<?php include 'modals/start-new-modal.php'; ?>
 			</div>
 			<!--div class="col-lg-1"> 
 				<input type="button" class="btn btn-warning" id="show_adjustment_history" value="Adjustmnt"/>
-			</div-->
+			</div-->	
 			<div class="col-lg-1">
 				<form method="post" action="api/export.php">
 					<input type="submit" name="export" id="export" class="btn btn-info" value="csv Export"/>
@@ -75,6 +79,7 @@
 		<!--Main Table Body-->
 		<div class="panel panel-info"> 
 			<div class="panel-heading">Info Management </div>
+
 			<div class="panel-body">
 				<!--table class="table table-bordered"--> 
 				<table class="table table-bordered table-striped table-hover"> 

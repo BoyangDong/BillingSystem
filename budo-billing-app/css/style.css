@@ -68,11 +68,11 @@ th, p, button, input, textarea, h4 {
 	left: 7px;
 }
 
-#refresh {
+/*#refresh {
 	font-size: 16px; 
 	cursor: pointer;
 	margin-left: 225px;
-}
+}*/
 
 .fa-adjust:hover {
     color: blue;
@@ -102,6 +102,13 @@ th, p, button, input, textarea, h4 {
 
 .login_panel{
 	margin-top: 100px;
+}
+
+.fa-refresh{
+	position:absolute;
+	left: 525px;
+	top: 140px;
+	cursor: pointer;
 }
 
 #logoutLblPos{

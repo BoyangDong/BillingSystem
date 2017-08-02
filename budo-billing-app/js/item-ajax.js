@@ -28,17 +28,17 @@ $( document ).ready(function() {
 				if(responseObject.message=="Billing Info Entered") {
 					var rows = '';
 					rows = rows + '<tr>';
-					rows = rows + '<td>'+responseObject.info.Invoice_Number+'</td>';
-					rows = rows + '<td>'+responseObject.info.Firm+'</td>';
-					rows = rows + '<td>'+responseObject.info.Office+'</td>';
-					rows = rows + '<td>'+responseObject.info.Account+'</td>';
-					rows = rows + '<td>'+responseObject.info.Currency+'</td>';
-					rows = rows + '<td>'+responseObject.info.Off_Office+'</td>';
-					rows = rows + '<td>'+responseObject.info.Off_Account+'</td>';
-					rows = rows + '<td>'+responseObject.info.Description+'</td>';
-					rows = rows + '<td>'+responseObject.info.Net_Amount+'</td>';
-					rows = rows + '<td>'+responseObject.info.Comment_Code+'</td>';
-					rows = rows + '<td data-id="'+responseObject.info.id+'">';
+					rows = rows + '<td>'+obj.Invoice_Number+'</td>';
+					rows = rows + '<td>'+obj.Firm+'</td>';
+					rows = rows + '<td>'+obj.Office+'</td>';
+					rows = rows + '<td>'+obj.Account+'</td>';
+					rows = rows + '<td>'+obj.Currency+'</td>';
+					rows = rows + '<td>'+obj.Off_Office+'</td>';
+					rows = rows + '<td>'+obj.Off_Account+'</td>';
+					rows = rows + '<td>'+obj.Description+'</td>';
+					rows = rows + '<td>'+obj.Net_Amount+'</td>';
+					rows = rows + '<td>'+obj.Comment_Code+'</td>';
+					rows = rows + '<td data-id="'+obj.id+'">';
 					rows = rows + '<i class="fa fa-pencil-square-o edit-item" id="pencil" data-toggle="modal" data-target="#edit-item" ></i> ';
         			rows = rows + '<i class="fa fa-trash-o remove-item" id="trash"></i>';
         			//rows = rows + '<i class="fa fa-adjust adjust-item" id="adj"></i>';
@@ -225,6 +225,46 @@ $( document ).ready(function() {
 		});
 
 	});
+
+	/* Synchronization Icon */
+	$("body").on("click", ".sync", function(){
+		console.log("sync icon is clicked..");
+		$.ajax({
+			url: "api/sync.php",
+			method: "GET", 
+			success: function(response){
+				var responseObject = JSON.parse(response);
+				if(0==responseObject.length){
+					toastr.warning('No record can be found..', 'Hmm..', {timeOut: 5000});
+				}else{
+					for(var i = 0; i < responseObject.length; i++){
+						var obj = responseObject[i];
+						var rows = '';
+						rows = rows + '<tr>';
+						rows = rows + '<td>'+obj.Invoice_Number+'</td>';
+						rows = rows + '<td>'+obj.Firm+'</td>';
+						rows = rows + '<td>'+obj.Office+'</td>';
+						rows = rows + '<td>'+obj.Account+'</td>';
+						rows = rows + '<td>'+obj.Currency+'</td>';
+						rows = rows + '<td>'+obj.Off_Office+'</td>';
+						rows = rows + '<td>'+obj.Off_Account+'</td>';
+						rows = rows + '<td>'+obj.Description+'</td>';
+						rows = rows + '<td>'+obj.Net_Amount+'</td>';
+						rows = rows + '<td>'+obj.Comment_Code+'</td>';
+						rows = rows + '<td data-id="'+obj.id+'">';
+						rows = rows + '<i class="fa fa-pencil-square-o edit-item" id="pencil" data-toggle="modal" data-target="#edit-item" ></i> ';
+	        			rows = rows + '<i class="fa fa-trash-o remove-item" id="trash"></i>';
+	        			//rows = rows + '<i class="fa fa-adjust adjust-item" id="adj"></i>';
+	       				rows = rows + '</td>';
+		  				rows = rows + '</tr>';
+						$("tbody").append(rows);
+					}					
+					toastr.success('Synced with DB!', 'Success', {timeOut: 5000});
+				}
+			}
+		});
+	});
+
 
 
 });
