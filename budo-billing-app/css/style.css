@@ -99,3 +99,13 @@ th, p, button, input, textarea, h4 {
 .form-group{
 	margin-bottom: 0px;
 }
+
+.login_panel{
+	margin-top: 100px;
+}
+
+#logoutLblPos{
+   position: fixed;
+   right: 10px;
+   top: 10px;
+}

@@ -11,7 +11,7 @@ $(document).ready(function(){
 		console.log("starting from hererere");
 
 		var id = $(this).parents('div').data("id"); 
-		var h_obj = $(this).parents("div[data-id="+id+"]"); //insete
+		var h_obj = $(this).parents("div[data-id="+id+"]"); //insead 
 		$.ajax({
 	    	dataType: 'json',
 		 	type:'POST',

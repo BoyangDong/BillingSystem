@@ -18,7 +18,8 @@ $( document ).ready(function() {
 				off_account: $('input[name="off_account"]').val(),
 				description: $('textarea[name="description"]').val(),
 				net_amount: $('input[name="net_amount"]').val(),
-				comment_code: $('input[name="comment_code"]').val()
+				comment_code: $('input[name="comment_code"]').val(),
+				comments: $('input[name="comments"]').val()
 			},
 			success: function(response) {
 				// template literal
@@ -40,7 +41,7 @@ $( document ).ready(function() {
 					rows = rows + '<td data-id="'+responseObject.info.id+'">';
 					rows = rows + '<i class="fa fa-pencil-square-o edit-item" id="pencil" data-toggle="modal" data-target="#edit-item" ></i> ';
         			rows = rows + '<i class="fa fa-trash-o remove-item" id="trash"></i>';
-        			rows = rows + '<i class="fa fa-adjust adjust-item" id="adj"></i>';
+        			//rows = rows + '<i class="fa fa-adjust adjust-item" id="adj"></i>';
        				rows = rows + '</td>';
 	  				rows = rows + '</tr>';
 					$("tbody").append(rows);
@@ -60,7 +61,8 @@ $( document ).ready(function() {
 			$("#create-item").find("input[name='off_account']").val('');
 			$("#create-item").find("input[name='net_amount']").val('');	
 			$("#create-item").find("textarea[name='description']").val('');				
-			$("#create-item").find("input[name='comment_code']").val('R');			
+			$("#create-item").find("input[name='comment_code']").val('R');	
+			$("#create-item").find("input[name='comments']").val('');			
 		});
 	});
 
@@ -111,6 +113,7 @@ $( document ).ready(function() {
 		var description = $("#edit-item").find("textarea[name='description']").val();
 		var net_amount = $("#edit-item").find("input[name='net_amount']").val();
 		var comment_code = $("#edit-item").find("input[name='comment_code']").val();
+		var comments = $("#edit-item").find("input[name='comments']").val();
 
 		if(invoice_number != '' && firm != '' && office != '' && account != '' && currency != '' && off_office != '' && off_account != '' && description != '' && comment_code != ''){
 			$.ajax({
@@ -127,7 +130,8 @@ $( document ).ready(function() {
 					description: description,
 					net_amount: net_amount,
 					comment_code: comment_code,
-					id: id
+					id: id,
+					comments: comments
 				},
 				success: function(response) {
 					console.log(response);
