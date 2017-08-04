@@ -3,15 +3,56 @@
 /*	print_r($_FILES);
 	print_r($_POST);*/
 
+	require 'db_config.php'; 
+	$sql = $db->prepare("SELECT Firm, Office, Account, Currency, Off_Office, Off_Account, Description, Net_Amount, Comment_Code FROM billing_info");
+	$sql->execute(); 
+
+	/* Fetch all of the remaining rows in the result set */
+	$results = $sql->fetchAll();
+	$tableSpreadsheet = $tableSpreadsheet . '<br/><br/><br/><table border="1" width="100%">';
+	$tableSpreadsheet .= '<thead>
+		<tr>
+			<th>Firm</th>
+			<th>Office</th>
+			<th>Account</th>
+			<th>Currency</th>
+			<th>Off Office</th>
+			<th>Off Account</th>
+			<th>Description</th>
+			<th>Net Amount</th>
+			<th>Comment Code</th>
+		</tr>
+	</thead>';
+	foreach($results as $value) {
+		$tableSpreadsheet .= '
+			<tr>
+				<td align="center">'.$value['Firm'].'</td>
+				<td align="center">'.$value['Office'].'</td>
+				<td align="center">'.$value['Account'].'</td>
+				<td align="center">'.$value['Currency'].'</td>
+				<td align="center">'.$value['Off_Office'].'</td>
+				<td align="center">'.$value['Off_Account'].'</td>
+				<td align="center">'.$value['Description'].'</td>
+				<td align="center">'.$value['Net_Amount'].'</td>
+				<td align="center">'.$value['Comment_Code'].'</td>
+			</tr>';
+	}
+
+	$tableSpreadsheet .= '</table>';
+
 	require '../PHPMailer/PHPMailerAutoload.php';
 	 
 	$mailto = $_POST['recipients'];
 	$mailSub = $_POST['mail_sub'];
-	$mailMsg = $_POST['mail_msg'];
+	$mailMsg = $_POST['mail_msg'] . $tableSpreadsheet; //concatenate two strings together the key operator for concatenating two or more strings is "."
 
 	$mailto_edf = $_POST['clearing_firm_recipients'];
 	$mailSub_edf = $_POST['clearing_firm_mail_sub'];
 	$mailMsg_edf = $_POST['clearing_firm_mail_msg'];	
+
+
+    // we need to write a query to get all the values from the database and convert it to a table
+    // can you copy some statements that you've written earlier for connecting to the db
 
 	$mail = new PHPMailer();
 

@@ -1,5 +1,7 @@
 $( document ).ready(function() {
 
+	getDataAndDisplay()
+
 	var tableRowId;
 	
 	/* Insert into DB and show on the page*/
@@ -229,6 +231,10 @@ $( document ).ready(function() {
 	/* Synchronization Icon */
 	$("body").on("click", ".sync", function(){
 		console.log("sync icon is clicked..");
+		getDataAndDisplay();
+	});
+
+	function getDataAndDisplay() {
 		$.ajax({
 			url: "api/sync.php",
 			method: "GET", 
@@ -264,7 +270,9 @@ $( document ).ready(function() {
 				}
 			}
 		});
-	});
+	}
+// you want it to work on page load right?
+
 
 
 
