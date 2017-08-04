@@ -56,9 +56,9 @@
 
 		<!--main-->
 		<div class="row header-row">
-			<div class="col-lg-9"> <h2 id="header">Daily Billing System</h2></div> 
+			<div class="col-lg-9"> <h2 id="header">Billing System Approver Panel</h2></div> 
 			<div class="col-lg-1"> 
-				<input type="button" class="btn btn-danger" id="start_new" value="Start New" data-toggle="modal" data-target="#start-new-modal"/>
+				<input type="button" class="btn btn-default" id="start_new" value="Start New" data-toggle="modal" data-target="#start-new-modal"/>
 				<?php include 'modals/start-new-modal.php'; ?>
 			</div>
 			<!--div class="col-lg-1"> 
@@ -66,11 +66,11 @@
 			</div-->	
 			<div class="col-lg-1">
 				<form method="post" action="api/export.php">
-					<input type="submit" name="export" id="export" class="btn btn-warning" value="csv Export"/>
+					<input type="submit" name="export" id="export" class="btn btn-default" value="csv Export"/>
 				</form>
 			</div>
 			<div class="col-lg-1"> 
-				<button type="button" id="createBtn" class="btn btn-primary" data-toggle="modal" data-target="#create-item"> 
+				<button type="button" id="createBtn" class="btn btn-default" data-toggle="modal" data-target="#create-item"> 
 					Create 
 				</button>	
 			</div>
@@ -113,13 +113,21 @@
 	</div>
 	<!--Submit for Approval Modal-->
 	<div>
-		<div class="col-lg-9"></div>
-		<div class="col-lg-3">
+		<div class="col-lg-8"></div>
+		<div class="col-lg-1">
 			<!--form method="post" action="api/export.php"-->
-			<button type="submit" class="btn btn-success" id="submit-form" data-toggle="modal" data-target="#submit-modal">SUBMIT</button>
+			<button type="submit" class="btn btn-danger btn-lg" id="reject-form" data-toggle="modal" data-target="#reject-modal" style="margin-bottom: 80px">Reject</button>
 		</div>
+		<div class="col-lg-1">		
+			<!--form method="post" action="api/export.php"-->
+			<button type="submit" class="btn btn-success btn-lg" id="submit-form" data-toggle="modal" data-target="#email-clearing-firm-modal" data-toggle="" aria-hidden="true" title="Sync with DB" style="margin-bottom: 80px">
+				<div data-toggle="tooltip" aria-hidden="true" title="Sync with DB">Send</div>
+			</button>
+		</div>
+		<div class="col-lg-2"></div>
 		<?php
-			include 'modals/submit-modal.php';
+			include 'modals/email-clearing-firm-modal.php';
+			include 'modals/reject-modal.php'; 
 		?>
 	</div>
 	<!--div id="sidemenu"> 

@@ -43,7 +43,6 @@
 								<input type="text" name="off_account" class="form-control" data-error="Please enter off account." required />
 								<div class="help-block with-errors"></div>
 							</div>
-
 							<div class="form-group">
 								<label class="control-label" for="title">Net Amount (-)</label>
 								<input type="number" name="net_amount" class="form-control" max="0" value="-0.00" step=".01" data-error="Please enter a VALID net amount." required />

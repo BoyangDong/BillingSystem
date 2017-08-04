@@ -194,7 +194,7 @@ $( document ).ready(function() {
 				/*console.log('email ajax done');
 				console.log('hello world');*/
 				if(true){					
-					toastr.success('Email Sent!', 'Success', {timeOut: 5000});
+					toastr.success('Email Sent!', 'Success', {timeOut: 800});
 					$(".modal").modal('hide');
 				}else{
 					toastr.error('Issue Happened while Sending Email..','Failed..', {timeOut: 5000});
