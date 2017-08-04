@@ -233,6 +233,7 @@ $( document ).ready(function() {
 			url: "api/sync.php",
 			method: "GET", 
 			success: function(response){
+				$("tbody tr").remove();
 				var responseObject = JSON.parse(response);
 				if(0==responseObject.length){
 					toastr.warning('No record can be found..', 'Hmm..', {timeOut: 5000});
