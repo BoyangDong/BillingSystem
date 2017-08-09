@@ -3,6 +3,9 @@ require 'db_config.php';
 
 	$post = $_POST; 
 
+	//$da = trim($post['date_input']);
+	$da = trim($post['billing_date']);
+
 	$in = trim($post['invoice_number']);
 	$f = trim($post['firm']);
 	$o = trim($post['office']);
@@ -17,11 +20,11 @@ require 'db_config.php';
 	$cc = trim($post['comment_code']);
 	$c = trim($post['comments']);
 	
-	$sql = "INSERT INTO billing_info(Invoice_Number, Firm, Office, Account, Currency, Off_Office, Off_Account, Description, `Net_Amount`, Comment_Code, Comments) 
-			VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+	$sql = "INSERT INTO billing_info(Date, Invoice_Number, Firm, Office, Account, Currency, Off_Office, Off_Account, Description, `Net_Amount`, Comment_Code, Comments) 
+			VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 
 	$stmt = $db->prepare($sql);
-	$insert = $stmt->execute([$in, $f, $o, $a, $c, $oo, $oa, $d, $na, $cc, $c]);
+	$insert = $stmt->execute([$da, $in, $f, $o, $a, $c, $oo, $oa, $d, $na, $cc, $c]);
 
 	if(count($insert)){
 		$message = 'Billing Info Entered';

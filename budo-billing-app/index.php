@@ -119,5 +119,11 @@
 	        	<div class="col-lg-5"></div>
 			</div>
         </div>
+	    <footer class="footer">
+			Version 1.0
+		</footer>
+		<noscript> 
+			<h3>This site requires JavaScript. </h3>
+		</noscript>
     </body>
 </html>

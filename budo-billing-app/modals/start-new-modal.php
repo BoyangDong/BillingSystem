@@ -8,11 +8,23 @@
 				<h4 class="modal-title" id="myModalLabel"><b>Start a New Sheet</b></h4>
 			</div>
 			<div class="modal-body">
+				<div class="row"> 
+					<div class="col-lg-1"></div>
+					<div class="col-lg-5">
+						<div class="form-group">
+							<label class="control-label" for="title">Pick a Date</label>
+								<input type="date" id="date_selector" name="date" required />
+						</div>
+					</div>
+					<div class="col-lg-5"></div>
+					<div class="col-lg-1"></div>					
+				</div>
+				<br/>
 				<div class="row">
 					<div class="col-lg-1">
 					</div>
 					<div class="col-lg-5"> 
-						<p>Budo Charge</p>
+						<label class="control-label" for="title">Load Budo Charge</label>
 						<div class="form-check form-check-inline">
 							<label class="form-check-label">
 								<input class="form-check-input" type="checkbox" id="corey" name="recurring_group[]" value="rent"> Rent
@@ -34,8 +46,8 @@
 							</label>
 						</div>
 					</div>
-					<div class="col-lg-5">
-						<p>Vendor Charge</p>					
+					<div class="col-lg-5">	
+						<label class="control-label" for="title">Load Vendor Charge</label>			
 						<div class="form-check form-check-inline">
 							<label class="form-check-label">
 								<input class="form-check-input" type="checkbox" id="boyang" name="recurring_group[]" value="victory"> Victory
@@ -71,15 +83,26 @@
 								<input class="form-check-input" type="checkbox" id="boyang2" name="recurring_group[]" value="cloud9"> Cloud9
 							</label>
 						</div>
+						<br>
 					</div>
+					<div class="col-lg-1">
+					</div>
+				</div>
+				<div class="row"> 
+					<div class="col-lg-1">
+					</div>
+					<div class="col-lg-10"></div>
+						<label class="control-label" for="title">All the existing billings will be gone, are you sure?</label>
 					<div class="col-lg-1">
 					</div>
 				</div>
 			</div>
 			<div class="modal-footer">
 				<button type="button" class="btn btn-default" data-dismiss="modal">Ignore</button>
-				<button type="button" id="confirm_delete" class="btn btn-success" data-dismiss="modal">Go !</button>
+				<button type="button" id="confirm_delete" class="btn btn-danger" data-dismiss="modal">Proceed</button>
 			</div>
 		</div>
 	</div>
 </div>
+
+

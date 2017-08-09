@@ -19,17 +19,19 @@
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/1000hz-bootstrap-validator/0.11.5/validator.min.js"></script>
 	<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
+	<script type="text/javascript" src="js/datepicker.js"></script>
     <link href="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Overpass|Quantico|Graduate|Ubuntu" rel="stylesheet">
 
 	<script type="text/javascript" language="javascript" src="js/item-ajax.js"></script>
 	<script type="text/javascript" language="javascript" src="js/BootSideMenu.js"></script>
 	<script type="text/javascript" language="javascript" src="js/slide-panel.js"></script>
+	<link rel="stylesheet" href="css/datepicker.css"/>
 	<link rel="stylesheet" href="css/style.css"/>
 	<link rel="stylesheet" href="css/BootSideMenu.css"/>
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 	
-	<title>Budo Billing System</title>  	
+	<title>Budo Billing System</title>
 </head>
 <body>
 	<!--Header Bar-->
@@ -57,6 +59,9 @@
 		<!--main-->
 		<div class="row header-row">
 			<div class="col-lg-9"> <h2 id="header">Daily Billing System</h2></div> 
+			<!--div class="col-lg-3">			 
+				Date: <input class="datepicker" type="text" name="date">
+			</div-->
 			<div class="col-lg-1"> 
 				<input type="button" class="btn btn-danger" id="start_new" value="Start New" data-toggle="modal" data-target="#start-new-modal"/>
 				<?php include 'modals/start-new-modal.php'; ?>

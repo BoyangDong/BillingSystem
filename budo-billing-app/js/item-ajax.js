@@ -1,16 +1,21 @@
 $( document ).ready(function() {
 
-	getDataAndDisplay()
+	getDataAndDisplay();
 
 	var tableRowId;
-	
+	var billingDateObj; 
+
 	/* Insert into DB and show on the page*/
 	$('.add-info').submit(function(e) {
 		e.preventDefault();
+		
+		billingDateObj = document.querySelector('input[type="date"]');
+
 		$.ajax({
 			url: 'api/create.php',
 			method: 'POST',
 			data: {
+				billing_date: billingDateObj.value,
 				invoice_number: $('input[name="invoice_number"]').val(),
 				firm: $('input[name="firm"]').val(),
 				office: $('input[name="office"]').val(),
@@ -219,7 +224,7 @@ $( document ).ready(function() {
 				console.log(message);
 				if(message == 1){
 					$("tbody tr").remove();
-					toastr.success('All Gone!', 'Success', {timeOut: 5000});
+					toastr.success('A New Sheet Created!', 'Success', {timeOut: 5000});
 				}else{
 					toastr.error('Issue Happened while Start New..','Failed..', {timeOut: 5000});
 				}
@@ -242,7 +247,7 @@ $( document ).ready(function() {
 				$("tbody tr").remove();
 				var responseObject = JSON.parse(response);
 				if(0==responseObject.length){
-					toastr.warning('No record can be found..', 'Hmm..', {timeOut: 5000});
+					toastr.warning('No record can be found..', 'Hmm..', {timeOut: 1000});
 				}else{
 					for(var i = 0; i < responseObject.length; i++){
 						var obj = responseObject[i];
@@ -266,14 +271,10 @@ $( document ).ready(function() {
 		  				rows = rows + '</tr>';
 						$("tbody").append(rows);
 					}					
-					toastr.success('Synced with DB!', 'Success', {timeOut: 5000});
+					toastr.success('Synced with DB!', 'Success', {timeOut: 800});
 				}
 			}
 		});
 	}
-// you want it to work on page load right?
-
-
-
 
 });

@@ -64,7 +64,7 @@
 		$mail ->addAttachment($file);		
 	}
 	// previous issue is that ajax is still trying to process the form and the ajax does not support file upload
-	//need to make the ajax support file upload and we'll be good yes open it
+	//need to make the ajax support file upload and we'll be good
 	$mail ->isSMTP();
 	$mail ->SMTPDebug = 0;
 	$mail ->SMTPAuth = true;
@@ -98,7 +98,7 @@
 		$mail_edf ->addAttachment($file_edf);		
 	}
 	// previous issue is that ajax is still trying to process the form and the ajax does not support file upload
-	//need to make the ajax support file upload and we'll be good yes open it
+	//need to make the ajax support file upload and we'll be good
 	$mail_edf ->isSMTP();
 	$mail_edf ->SMTPDebug = 0;
 	$mail_edf ->SMTPAuth = true;
@@ -120,5 +120,42 @@
 	}else{
 		$message = "email has been sent!";		
 	}
+
+	/*Once the email is sent, push everything to the pool*/
+
+	$sql_fetch_all = $db->prepare("SELECT Date, Invoice_Number, Firm, Office, Account, Currency, Off_Office, Off_Account, Description, Net_Amount, Comment_Code, Comments FROM billing_info");
+	$sql_fetch_all->execute(); 
+
+	$all_record = $sql_fetch_all->fetchAll();
+
+	foreach($all_record as $value) {
+		$sql_push = "INSERT INTO billing_pool(Date, Invoice_Number, Firm, Office, Account, Currency, Off_Office, Off_Account, Description, `Net_Amount`, Comment_Code, Comments) 
+				VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+
+		$date = $value['Date'];
+		$in = $value['Invoice_Number'];
+		$f = $value['Firm'];
+		$o = $value['Office'];
+		$a = $value['Account'];
+
+		$c = $value['Currency'];
+		$oo = $value['Off_Account'];
+		$oa = $value['Off_Account'];
+		
+		$d = $value['Description'];
+		$na = $value['Net_Amount'];
+		$cc = $value['Comment_Code'];
+		$c = $value['Comments'];
+
+		$stmt = $db->prepare($sql_push);
+		$insert = $stmt->execute([$date, $in, $f, $o, $a, $c, $oo, $oa, $d, $na, $cc, $c]);
+	}
+	try{
+		$truncate_table = $db->prepare("TRUNCATE TABLE `billing_info`");
+		$truncate_table -> execute();
+	}catch(PDOException $e){
+		echo $e->getMessage(); 
+	}
+
 	echo json_encode(array('message'=>$message));
 ?>

@@ -9,7 +9,7 @@
 			      	<div class="modal-body">
 			      		<form data-toggle="validator" action="api/create.php" class="add-info" method="POST">
 			      			<div class="form-group">
-								<input type="hidden" name="date" id="date"/>
+								<input type="hidden" name="date_input" id="date_input"/>
 							</div>	
 			      			<div class="form-group">
 								<label class="control-label" for="title">Invoice #</label>

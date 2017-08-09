@@ -17,7 +17,7 @@
 						</div>
 						<div class="form-check form-check-inline">
 							<label class="form-check-label">
-								<input class="form-check-input" type="checkbox" id="mark" name="recipients[]" value="mark.cukier@budoholdings.com" disabled> Mark C.
+								<input class="form-check-input" type="checkbox" id="mark" name="recipients[]" value="mark.cukier@budoholdings.com"> Mark C.
 							</label>
 						</div>
 						<div class="form-check form-check-inline">
