@@ -1,0 +1,11 @@
+Under command line, navigate under dir C:\Program Files\MySQL\MySQL Workbench 6.3 CE\ 
+, where the bin file resides 
+
+> mysqldump -u bdong -h localhost -p log_report error_log_info > F:\history_empty_logs.sql
+Then type in password and hit enter
+
+
+> mysql -u root -h 172.30.80.25 -p budo_firm < F:\history_empty_logs.sql
+Then type in password and hit enter
+
+F:\ drive my flash which is the one I knew I had the write access on 
