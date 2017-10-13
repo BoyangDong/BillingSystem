@@ -121,41 +121,47 @@
 		$message = "email has been sent!";		
 	}
 
-	/*Once the email is sent, push everything to the pool*/
+	/*Once the email to clearing firm is sent, push everything to the pool, and truncate the daily rebill database
+	  Only when there is a recipient from clearding form this will happen (which means the approver approves).
+	*/
+	if(count($mailto_edf) > 0){
+		$sql_fetch_all = $db->prepare("SELECT Date, Invoice_Number, Firm, Office, Account, Currency, Off_Office, Off_Account, Description, Net_Amount, Comment_Code, Comments FROM billing_info");
+		$sql_fetch_all->execute(); 
 
-	$sql_fetch_all = $db->prepare("SELECT Date, Invoice_Number, Firm, Office, Account, Currency, Off_Office, Off_Account, Description, Net_Amount, Comment_Code, Comments FROM billing_info");
-	$sql_fetch_all->execute(); 
+		$all_record = $sql_fetch_all->fetchAll();
 
-	$all_record = $sql_fetch_all->fetchAll();
+		foreach($all_record as $value) {
+			$sql_push = "INSERT INTO billing_pool(Date, Invoice_Number, Firm, Office, Account, Currency, Off_Office, Off_Account, Description, `Net_Amount`, Comment_Code, Comments) 
+					VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 
-	foreach($all_record as $value) {
-		$sql_push = "INSERT INTO billing_pool(Date, Invoice_Number, Firm, Office, Account, Currency, Off_Office, Off_Account, Description, `Net_Amount`, Comment_Code, Comments) 
-				VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+			$date = $value['Date'];
+			$in = $value['Invoice_Number'];
+			$f = $value['Firm'];
+			$o = $value['Office'];
+			$a = $value['Account'];
 
-		$date = $value['Date'];
-		$in = $value['Invoice_Number'];
-		$f = $value['Firm'];
-		$o = $value['Office'];
-		$a = $value['Account'];
+			$c = $value['Currency'];
+			$oo = $value['Off_Account'];
+			$oa = $value['Off_Account'];
+			
+			$d = $value['Description'];
+			$na = $value['Net_Amount'];
+			$cc = $value['Comment_Code'];
+			$c = $value['Comments'];
 
-		$c = $value['Currency'];
-		$oo = $value['Off_Account'];
-		$oa = $value['Off_Account'];
-		
-		$d = $value['Description'];
-		$na = $value['Net_Amount'];
-		$cc = $value['Comment_Code'];
-		$c = $value['Comments'];
-
-		$stmt = $db->prepare($sql_push);
-		$insert = $stmt->execute([$date, $in, $f, $o, $a, $c, $oo, $oa, $d, $na, $cc, $c]);
+			$stmt = $db->prepare($sql_push);
+			$insert = $stmt->execute([$date, $in, $f, $o, $a, $c, $oo, $oa, $d, $na, $cc, $c]);
+		}
+		try{
+			$truncate_table = $db->prepare("TRUNCATE TABLE `billing_info`");
+			$truncate_table -> execute();
+		}catch(PDOException $e){
+			echo $e->getMessage(); 
+		}
 	}
-	try{
-		$truncate_table = $db->prepare("TRUNCATE TABLE `billing_info`");
-		$truncate_table -> execute();
-	}catch(PDOException $e){
-		echo $e->getMessage(); 
-	}
+
 
 	echo json_encode(array('message'=>$message));
+
+
 ?>

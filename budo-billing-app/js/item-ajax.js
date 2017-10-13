@@ -215,16 +215,55 @@ $( document ).ready(function() {
 		});
 	});
 
-	/*Delete All Event*/
+	/*Start a New Page Event*/
 	$("#confirm_delete").click(function(e){
+		// select only the ones that are checked. 
+		var recurring_group = []
+		var billingDateObj = document.querySelector('input[type="date"]');
+
+		$('input[type="checkbox"]:checked').each(function(index) {
+			recurring_group.push('"'+this.value+'"'); // it's in string already but mysql requires that strings are quoted
+		});
+		// the post on the html is not really necessary because we are already using javascript to handle the post.
+		// if posting to the php backend straight from the html we could have done that
+		// but that will make the page to reload
+		console.log(recurring_group);
+
 		$.ajax({
 			url: 'api/delete_all.php',
-			method: 'GET',
+			method: 'POST',
+			data: { 
+				billing_date: billingDateObj.value,
+				recurring_group
+			}, 
 			success: function(message) {
-				console.log(message);
-				if(message == 1){
+				var responseDetails = JSON.parse(message);
+				console.log(responseDetails.data);
+				if(responseDetails.delete == 1){
 					$("tbody tr").remove();
 					toastr.success('A New Sheet Created!', 'Success', {timeOut: 5000});
+					for(var i = 0; i < responseDetails.data.length; i++){
+						var obj = responseDetails.data[i];
+						var rows = '';
+						rows = rows + '<tr>';
+						rows = rows + '<td>'+obj.Invoice_Number+'</td>';
+						rows = rows + '<td>'+obj.Firm+'</td>';
+						rows = rows + '<td>'+obj.Office+'</td>';
+						rows = rows + '<td>'+obj.Account+'</td>';
+						rows = rows + '<td>'+obj.Currency+'</td>';
+						rows = rows + '<td>'+obj.Off_Office+'</td>';
+						rows = rows + '<td>'+obj.Off_Account+'</td>';
+						rows = rows + '<td>'+obj.Description+'</td>';
+						rows = rows + '<td>'+obj.Net_Amount+'</td>';
+						rows = rows + '<td>'+obj.Comment_Code+'</td>';
+						rows = rows + '<td data-id="'+obj.id+'">';
+						rows = rows + '<i class="fa fa-pencil-square-o edit-item" id="pencil" data-toggle="modal" data-target="#edit-item" ></i> ';
+	        			rows = rows + '<i class="fa fa-trash-o remove-item" id="trash"></i>';
+	        			//rows = rows + '<i class="fa fa-adjust adjust-item" id="adj"></i>';
+	       				rows = rows + '</td>';
+		  				rows = rows + '</tr>';
+						$("tbody").append(rows);
+					}				
 				}else{
 					toastr.error('Issue Happened while Start New..','Failed..', {timeOut: 5000});
 				}
@@ -247,7 +286,7 @@ $( document ).ready(function() {
 				$("tbody tr").remove();
 				var responseObject = JSON.parse(response);
 				if(0==responseObject.length){
-					toastr.warning('No record can be found..', 'Hmm..', {timeOut: 1000});
+					toastr.info('Start a Sheet with Date Specified!', 'Howdy', {timeOut: 5000});
 				}else{
 					for(var i = 0; i < responseObject.length; i++){
 						var obj = responseObject[i];

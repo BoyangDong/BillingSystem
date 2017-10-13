@@ -32,7 +32,7 @@
 						</div>	
 						<div class="form-check form-check-inline">
 							<label class="form-check-label">
-								<input class="form-check-input" type="checkbox" id="boyang2" name="recipients[]" value="bdong.bobo@gmail.com"> Boyang Gmail
+								<input class="form-check-input" type="checkbox" id="boyang2" name="recipients[]" value="boyang.dong@budoholdings.com"> Boyang Work Email
 							</label>
 						</div>					
 						<strong><p style="margin-top: 5px; margin-bottom: 5px;">Title</p></strong>
@@ -59,7 +59,7 @@
 						</div>
 						<div class="form-check form-check-inline">
 							<label class="form-check-label">
-								<input class="form-check-input" type="checkbox" id="mark" name="clearing_firm_recipients[]" value="bdong.iit@gmail.com"> Boyang Gmail 2
+								<input class="form-check-input" type="checkbox" id="mark" name="clearing_firm_recipients[]" value="boyang.dong@budoholdings.com"> Boyang Work Email
 							</label>
 						</div>
 						<strong><p style="margin-top: 5px; margin-bottom: 5px;">Title</p></strong>

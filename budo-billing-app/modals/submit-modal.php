@@ -43,7 +43,7 @@
 						<strong><p style="margin-top: 5px; margin-bottom: 5px;">Title</p></strong>
 						<input type="text" name="mail_sub" class="form-control" value="Today's Rebill Sheet"/>
 						<strong><p style="margin-top: 10px; margin-bottom: 5px;">Message</p></strong>
-						<textarea rows='4' name="mail_msg" class="form-control" data-error="Please say something..." required>Hi, please checkout the file attached..&#13;&#10;&#13;&#10;Thanks,&#13;&#10;Becky</textarea>
+						<textarea rows='4' name="mail_msg" class="form-control" data-error="Please say something..." required>Hi, today's rebill sheet is completed. Please check it out on Rebill App..&#13;&#10;&#13;&#10;Thanks,&#13;&#10;Becky</textarea>
 						<!--Attachment Section-->
 						<strong><p style="margin-top: 10px; margin-bottom: 8px;">Attachement</p></strong>
 						<input type="file" name="sheet_attached">

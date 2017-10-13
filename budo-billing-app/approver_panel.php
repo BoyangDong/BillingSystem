@@ -19,14 +19,12 @@
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/1000hz-bootstrap-validator/0.11.5/validator.min.js"></script>
 	<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
-	<script type="text/javascript" src="js/datepicker.js"></script>
     <link href="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Overpass|Quantico|Graduate|Ubuntu" rel="stylesheet">
 
 	<script type="text/javascript" language="javascript" src="js/item-ajax.js"></script>
 	<script type="text/javascript" language="javascript" src="js/BootSideMenu.js"></script>
 	<script type="text/javascript" language="javascript" src="js/slide-panel.js"></script>
-	<link rel="stylesheet" href="css/datepicker.css"/>
 	<link rel="stylesheet" href="css/style.css"/>
 	<link rel="stylesheet" href="css/BootSideMenu.css"/>
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
