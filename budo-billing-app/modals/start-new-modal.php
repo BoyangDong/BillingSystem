@@ -98,7 +98,7 @@
 						<div class="col-lg-1">
 						</div>
 						<div class="col-lg-10"></div>
-							<label class="control-label" for="title">Are you sure to start a new one?</label>
+							<label class="control-label" for="title">Are you sure to start a new one? Current bills will be flushed out!</label>
 						<div class="col-lg-1">
 						</div>
 					</div>

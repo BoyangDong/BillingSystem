@@ -8,7 +8,7 @@
 			</div>
 			<div class="modal-body"> 
 				<div class="form-group">
-					<form action="api/send_email.php" name="sendMail" method="POST" enctype="multipart/form-data">
+					<form action="api/send_email.php" id="user-submit-for-approval-form" name="sendMail" method="POST" enctype="multipart/form-data">
 						<strong><p>Select Recipients</p></strong>
 						<div class="form-check form-check-inline">
 							<label class="form-check-label">

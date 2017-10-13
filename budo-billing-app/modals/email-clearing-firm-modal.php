@@ -66,6 +66,10 @@
 						<input type="text" name="clearing_firm_mail_sub" class="form-control" value="Rebill Sheet Today from Budo"/>
 						<strong><p style="margin-top: 10px; margin-bottom: 5px;">Message</p></strong>
 						<textarea rows='3' name="clearing_firm_mail_msg" class="form-control" data-error="Please say something..." required>Hi, please checkout the attachment.&#13;&#10;&#13;&#10;Thanks!</textarea>
+						<!---->
+						<!--Attachment Section-->
+						<strong><p style="margin-top: 10px; margin-bottom: 8px;">Attachement</p></strong>
+						<input type="file" name="sheet_attached">
 						<br><br>
 						<!---->
 						<div class="form-group">

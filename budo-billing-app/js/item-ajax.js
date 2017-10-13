@@ -186,10 +186,14 @@ $( document ).ready(function() {
 	/*Send Email Ajax*/
 	$("form[name='sendMail']").submit(function(e){
 		e.preventDefault();
-		var formData = new FormData(this);
-
+		var formData = new FormData(this); //'this' referes to the particular form itself, since the selector can match more than one element "form[name='sendMail']"
+		var id = $(this).attr('id');
+		var apiUrl = 'api/send_clearing_firm_email.php';
+		if(id === 'user-submit-for-approval-form') { // in js '3' == 3 is true, but '3' === 3 is false 
+			apiUrl = 'api/send_email.php';			
+		}
 		$.ajax({
-			url: 'api/send_email.php', 
+			url: apiUrl, 
 			method: 'POST',
 			data: formData,
 			async: false,
@@ -197,14 +201,15 @@ $( document ).ready(function() {
 			contentType: false,
 			processData: false,
 			success: function(response) {
-				console.log(response);
+				var r = JSON.parse(response);
+				console.log(r);
 				/*console.log('email ajax done');
 				console.log('hello world');*/
-				if(true){					
-					toastr.success('Email Sent!', 'Success', {timeOut: 800});
+				if(r.send_status){					
+					toastr.success(r.message, 'Success', {timeOut: 5000});
 					$(".modal").modal('hide');
 				}else{
-					toastr.error('Issue Happened while Sending Email..','Failed..', {timeOut: 5000});
+					toastr.error(r.message, 'Failed..', {timeOut: 5000});
 				}
 			},
 			fail: function() {
@@ -218,7 +223,7 @@ $( document ).ready(function() {
 	/*Start a New Page Event*/
 	$("#confirm_delete").click(function(e){
 		// select only the ones that are checked. 
-		var recurring_group = []
+		var recurring_group = [];
 		var billingDateObj = document.querySelector('input[type="date"]');
 
 		$('input[type="checkbox"]:checked').each(function(index) {
@@ -228,13 +233,19 @@ $( document ).ready(function() {
 		// if posting to the php backend straight from the html we could have done that
 		// but that will make the page to reload
 		console.log(recurring_group);
-
+		// so an empty array was initialized to recurring_group, so that we can push each selection into the array.
+		// now if the user did not check any of the checkboxes then the recurring_group wil be an empty array like this []
+		// the empty array just cannot be sent to the backend anyhow
+		// that's why do a check on if the array is empty, so if it is empty, it'll send an empty string
+		// otherwise it will send the array itself.
+		// now on the php end, only check if it was an array that was sent or a string is required. bearing in mind that if a string
+		// is sent then that means te user did not select anything
 		$.ajax({
 			url: 'api/delete_all.php',
 			method: 'POST',
 			data: { 
 				billing_date: billingDateObj.value,
-				recurring_group
+				recurring_group: recurring_group.length ? recurring_group : ''
 			}, 
 			success: function(message) {
 				var responseDetails = JSON.parse(message);
