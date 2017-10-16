@@ -52,12 +52,16 @@
     // can you copy some statements that you've written earlier for connecting to the db
 
 	$mail = new PHPMailer();
-
-	$file = "attachment/" . basename($_FILES['sheet_attached']['name']); 
-
-	if(move_uploaded_file($_FILES['sheet_attached']['tmp_name'], $file)){
-		$mail ->addAttachment($file);		
+	//print_r($_FILES);
+	// an array of length 0 is not null.
+	// using count helps us determine if it's empty or not instead of using isset
+	if(count($_FILES) > 0){
+		$file = "attachment/" . basename($_FILES['sheet_attached']['name']); 
+		if(move_uploaded_file($_FILES['sheet_attached']['tmp_name'], $file)){
+			$mail ->addAttachment($file);		
+		}
 	}
+
 	// previous issue is that ajax is still trying to process the form and the ajax does not support file upload
 	//need to make the ajax support file upload and we'll be good
 	$mail ->isSMTP();
@@ -80,7 +84,7 @@
 		$message = "issue happened while sending email!";
 		$send_status = 0;
 	}else{
-		$message = "Email to Approver, SENT!";
+		$message = "Email SENT!";
 		$send_status = 1;		
 	}
 

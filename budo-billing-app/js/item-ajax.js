@@ -101,6 +101,9 @@ $( document ).ready(function() {
 		$("#edit-item").find("input[name='comment_code']").val(comment_code);
 		
 		$("#edit-item").find(".edit-id").val(id);
+
+		console.log(id); 
+
 	});
 
 	/* Update Item*/
@@ -121,6 +124,8 @@ $( document ).ready(function() {
 		var net_amount = $("#edit-item").find("input[name='net_amount']").val();
 		var comment_code = $("#edit-item").find("input[name='comment_code']").val();
 		var comments = $("#edit-item").find("input[name='comments']").val();
+
+		console.log("updates from here" + id + " " + invoice_number);
 
 		if(invoice_number != '' && firm != '' && office != '' && account != '' && currency != '' && off_office != '' && off_account != '' && description != '' && comment_code != ''){
 			$.ajax({
@@ -189,7 +194,7 @@ $( document ).ready(function() {
 		var formData = new FormData(this); //'this' referes to the particular form itself, since the selector can match more than one element "form[name='sendMail']"
 		var id = $(this).attr('id');
 		var apiUrl = 'api/send_clearing_firm_email.php';
-		if(id === 'user-submit-for-approval-form') { // in js '3' == 3 is true, but '3' === 3 is false 
+		if(id === 'user-submit-for-approval-form' || id === 'reject-user-form') { // in js '3' == 3 is true, but '3' === 3 is false 
 			apiUrl = 'api/send_email.php';			
 		}
 		$.ajax({
@@ -274,7 +279,8 @@ $( document ).ready(function() {
 	       				rows = rows + '</td>';
 		  				rows = rows + '</tr>';
 						$("tbody").append(rows);
-					}				
+					}
+					getDataAndDisplay();				
 				}else{
 					toastr.error('Issue Happened while Start New..','Failed..', {timeOut: 5000});
 				}
@@ -290,6 +296,7 @@ $( document ).ready(function() {
 	});
 
 	function getDataAndDisplay() {
+		console.log('here');
 		$.ajax({
 			url: "api/sync.php",
 			method: "GET", 
