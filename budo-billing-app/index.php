@@ -60,11 +60,7 @@
 		    </div>
 		  </div>
 		</nav>
-        <!-- Output error message if any -->
-        <!--div style="position:relative; padding-left:800px">
-        	<?php echo $error; ?> 
-        </div-->             
-        <!-- form for login -->
+		<!-- form for login -->
         <div class="container">
 	        <div class="row">
 	        	<div class="col-lg-4"></div>
@@ -88,11 +84,15 @@
 	        				$_SESSION['loggedIn'] = true;
 	        				echo $user_type;
 	        				if($user_type == "approver"){
-	        					session_start();
+	        					if(!isset($_SESSION)){
+	        						session_start();	
+	        					}	        					
 	        					header('Location: approver_panel.php');
-           						
+           			
 	        				}else{
-	        					session_start();
+	        					if(!isset($_SESSION)){
+	        						session_start();	
+	        					}	
 	        					header('Location: app.php');		
 	        				}
 	        				     				

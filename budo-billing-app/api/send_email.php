@@ -81,6 +81,7 @@
 		$mail ->addAddress($r);
 	}
 	if(!$mail->send()){
+		echo $mail->ErrorInfo;
 		$message = "issue happened while sending email!";
 		$send_status = 0;
 	}else{

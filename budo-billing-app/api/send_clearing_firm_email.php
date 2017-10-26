@@ -25,9 +25,9 @@
 	$mail_edf ->Host = "west.exch028.serverdata.net";
 	$mail_edf ->Port = 587; 
 	$mail_edf ->IsHTML(true);
-	$mail_edf ->Username = "boyang.dong@budoholdings.com";
-	$mail_edf ->Password = "dby19930203dby..";
-	$mail_edf ->setFrom("boyang.dong@budoholdings.com", "Boyang Work Email");
+	$mail_edf ->Username = "mark.cukier@budoholdings.com";
+	$mail_edf ->Password = "Guitar25!";
+	$mail_edf ->setFrom("mark.cukier@budoholdings.com", "Mark C. Work Email");
 	$mail_edf ->Subject = $mailSub_edf;
 	$mail_edf ->Body = $mailMsg_edf;
 

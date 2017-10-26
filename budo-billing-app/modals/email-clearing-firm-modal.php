@@ -9,30 +9,31 @@
 			<div class="modal-body"> 
 				<div class="form-group">
 					<form action="api/send_email.php" name="sendMail" method="POST" enctype="multipart/form-data">
+						<!--
 						<strong><p>Notify Users</p></strong>
 						<div class="form-check form-check-inline">
 							<label class="form-check-label">
-								<input class="form-check-input" type="checkbox" id="corey" name="recipients[]" value="mike.caulfield@budoholdings.com" disabled> Mike C.
+								<input class="form-check-input" type="checkbox" id="boyang2" name="recipients[]" value="mark.cukier@budoholdings.com"> Mark C. 
 							</label>
 						</div>
 						<div class="form-check form-check-inline">
 							<label class="form-check-label">
-								<input class="form-check-input" type="checkbox" id="mark" name="recipients[]" value="phil.pliskin@budoholdings.com" disabled> Phil P.
+								<input class="form-check-input" type="checkbox" id="boyang2" name="recipients[]" value="corey.fisher@budoholdings.com"> Corey F. 
 							</label>
 						</div>
 						<div class="form-check form-check-inline">
 							<label class="form-check-label">
-								<input class="form-check-input" type="checkbox" id="mark" name="recipients[]" value="becky.ali@budoholdings.com" disabled> Becky A.
+								<input class="form-check-input" type="checkbox" id="corey" name="recipients[]" value="mike.caulfield@budoholdings.com"> Mike C.
 							</label>
 						</div>
 						<div class="form-check form-check-inline">
 							<label class="form-check-label">
-								<input class="form-check-input" type="checkbox" id="boyang" name="recipients[]" value="boyang.dong@budoholdings.com"> Boyang D.
+								<input class="form-check-input" type="checkbox" id="mark" name="recipients[]" value="phil.pliskin@budoholdings.com"> Phil P.
 							</label>
-						</div>	
+						</div>
 						<div class="form-check form-check-inline">
 							<label class="form-check-label">
-								<input class="form-check-input" type="checkbox" id="boyang2" name="recipients[]" value="boyang.dong@budoholdings.com"> Boyang Work Email
+								<input class="form-check-input" type="checkbox" id="mark" name="recipients[]" value="becky.ali@budoholdings.com" checked="true"> Becky A.
 							</label>
 						</div>					
 						<strong><p style="margin-top: 5px; margin-bottom: 5px;">Title</p></strong>
@@ -40,26 +41,22 @@
 						<strong><p style="margin-top: 10px; margin-bottom: 5px;">Message</p></strong>
 						<textarea rows='3' name="mail_msg" class="form-control" data-error="Please say something..." required>Hi, the spreadsheet has been approved.&#13;&#10;&#13;&#10;Thanks!</textarea>
 						<br>
+						-->
 						<!--Send to Clearing Firm Section-->
 						<strong><p>To Clearing Firm</p></strong>
 						<div class="form-check form-check-inline">
 							<label class="form-check-label">
-								<input class="form-check-input" type="checkbox" id="corey" name="clearing_firm_recipients[]" value="nroberts@nirvanats.com" disabled> Nora Roberts
+								<input class="form-check-input" type="checkbox" name="clearing_firm_recipients[]" value="nroberts@nirvanats.com" checked="true"> Nora Roberts
 							</label>
 						</div>
 						<div class="form-check form-check-inline">
 							<label class="form-check-label">
-								<input class="form-check-input" type="checkbox" id="mark" name="clearing_firm_recipients[]" value="jschlaefke@nirvanats.com" disabled> John Schlaefke
+								<input class="form-check-input" type="checkbox" name="clearing_firm_recipients[]" value="jschlaefke@nirvanats.com" checked="true"> John Schlaefke
 							</label>
 						</div>
 						<div class="form-check form-check-inline">
 							<label class="form-check-label">
-								<input class="form-check-input" type="checkbox" id="mark" name="clearing_firm_recipients[]" value="bdong.bobo@gmail.com"> Boyang Gmail
-							</label>
-						</div>
-						<div class="form-check form-check-inline">
-							<label class="form-check-label">
-								<input class="form-check-input" type="checkbox" id="mark" name="clearing_firm_recipients[]" value="boyang.dong@budoholdings.com"> Boyang Work Email
+								<input class="form-check-input" type="checkbox" name="clearing_firm_recipients[]" value="becky.ali@budoholdings.com" checked="true"> Becky A. (notify user)
 							</label>
 						</div>
 						<strong><p style="margin-top: 5px; margin-bottom: 5px;">Title</p></strong>

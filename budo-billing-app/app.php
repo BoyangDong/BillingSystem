@@ -8,6 +8,9 @@
 	if (!isset($_SESSION['loggedIn']) || $_SESSION['loggedIn'] == false) {
 		header("Location: index.php");
 	}
+	if($_SESSION['type'] != 'user'){
+		header("Location: approver_panel.php");
+	}
 ?>
 <!DOCTYPE html>
 <html lang="en">

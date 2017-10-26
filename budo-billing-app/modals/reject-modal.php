@@ -12,27 +12,27 @@
 						<strong><p>Select Recipients</p></strong>
 						<div class="form-check form-check-inline">
 							<label class="form-check-label">
-								<input class="form-check-input" type="checkbox" id="becky" name="recipients[]" value="becky.ali@budoholdings.com" disabled> Becky A.
+								<input class="form-check-input" type="checkbox" id="becky" name="recipients[]" value="becky.ali@budoholdings.com" checked="true"> Becky A.
 							</label>
 						</div>
 						<div class="form-check form-check-inline">
 							<label class="form-check-label">
-								<input class="form-check-input" type="checkbox" id="boyang" name="recipients[]" value="boyang.dong@budoholdings.com"> Boyang D.
+								<input class="form-check-input" type="checkbox" name="recipients[]" value="mark.cukier@budoholdings.com"> Mark C.
 							</label>
 						</div>	
 						<div class="form-check form-check-inline">
 							<label class="form-check-label">
-								<input class="form-check-input" type="checkbox" id="boyang2" name="recipients[]" value="bdong.bobo@gmail.com"> Boyang Gmail
+								<input class="form-check-input" type="checkbox" name="recipients[]" value="corey.fisher@budoholdings.com"> Corey F. 
 							</label>
 						</div>					
 						<div class="form-check form-check-inline">
 							<label class="form-check-label">
-								<input class="form-check-input" type="checkbox" id="corey" name="recipients[]" value="mike.caulfield@budoholdings.com" disabled> Mike C.
+								<input class="form-check-input" type="checkbox" id="corey" name="recipients[]" value="mike.caulfield@budoholdings.com"> Mike C.
 							</label>
 						</div>
 						<div class="form-check form-check-inline">
 							<label class="form-check-label">
-								<input class="form-check-input" type="checkbox" id="mark" name="recipients[]" value="phil.pliskin@budoholdings.com" disabled> Phil P.
+								<input class="form-check-input" type="checkbox" id="mark" name="recipients[]" value="phil.pliskin@budoholdings.com"> Phil P.
 							</label>
 						</div>
 						<strong><p style="margin-top: 5px; margin-bottom: 5px;">Title</p></strong>

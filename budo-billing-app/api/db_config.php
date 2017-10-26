@@ -4,7 +4,7 @@
 $host = '127.0.0.1';
 $db   = 'mydb';
 $user = 'root';
-$pass = 'bdong';
+$pass = 'Password1!';
 $charset = 'utf8';
 
 try 
