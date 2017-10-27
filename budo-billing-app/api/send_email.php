@@ -64,7 +64,7 @@
 
 	// previous issue is that ajax is still trying to process the form and the ajax does not support file upload
 	//need to make the ajax support file upload and we'll be good
-	$mail ->isSMTP();
+/*	$mail ->isSMTP();
 	$mail ->SMTPDebug = 0;
 	$mail ->SMTPAuth = true;
 	$mail ->SMTPSecure = 'ssl';
@@ -74,6 +74,19 @@
 	$mail ->Username = "test.budo@gmail.com";
 	$mail ->Password = "test.budo1234";
 	$mail ->setFrom("test.budo@gmail.com", "Budo Gmail");
+	$mail ->Subject = $mailSub;
+	$mail ->Body = $mailMsg;*/
+
+	$mail ->isSMTP();
+	$mail ->SMTPDebug = 0;
+	$mail ->SMTPAuth = true;
+	$mail ->SMTPSecure = 'TLS';
+	$mail ->Host = "west.exch028.serverdata.net";
+	$mail ->Port = 587; 
+	$mail ->IsHTML(true);
+	$mail ->Username = "rebill@budoholdings.com";
+	$mail ->Password = "123Password!";
+	$mail ->setFrom("rebill@budoholdings.com", "Budo Rebill Email");
 	$mail ->Subject = $mailSub;
 	$mail ->Body = $mailMsg;
 

@@ -27,12 +27,17 @@
 						</div>					
 						<div class="form-check form-check-inline">
 							<label class="form-check-label">
-								<input class="form-check-input" type="checkbox" id="corey" name="recipients[]" value="mike.caulfield@budoholdings.com"> Mike C.
+								<input class="form-check-input" type="checkbox" name="recipients[]" value="mike.caulfield@budoholdings.com"> Mike C.
 							</label>
 						</div>
 						<div class="form-check form-check-inline">
 							<label class="form-check-label">
-								<input class="form-check-input" type="checkbox" id="mark" name="recipients[]" value="phil.pliskin@budoholdings.com"> Phil P.
+								<input class="form-check-input" type="checkbox" name="recipients[]" value="phil.pliskin@budoholdings.com"> Phil P.
+							</label>
+						</div>
+						<div class="form-check form-check-inline">
+							<label class="form-check-label">
+								<input class="form-check-input" type="checkbox" name="recipients[]" value="boyang.dong@budoholdings.com"> Boyang D. 
 							</label>
 						</div>
 						<strong><p style="margin-top: 5px; margin-bottom: 5px;">Title</p></strong>
