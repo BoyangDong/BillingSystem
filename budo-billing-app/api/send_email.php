@@ -1,8 +1,8 @@
 <?php
-	
+	/*echo !extension_loaded('openssl')?"Not Available":"Available";*/
 /*	print_r($_FILES);
 	print_r($_POST);*/
-
+	
 	require 'db_config.php'; 
 	$sql = $db->prepare("SELECT Firm, Office, Account, Currency, Off_Office, Off_Account, Description, Net_Amount, Comment_Code FROM billing_info");
 	$sql->execute(); 
@@ -42,11 +42,17 @@
 	$tableSpreadsheet .= '</table>';
 
 	require '../PHPMailer/PHPMailerAutoload.php';
-	 
-	$mailto = $_POST['recipients'];
-	$mailSub = $_POST['mail_sub'];
-	$mailMsg = $_POST['mail_msg'] . $tableSpreadsheet; //concatenate two strings together the key operator for concatenating two or more strings is "."
+	
+	$mailto = isset($_POST['recipients']) ? $_POST['recipients'] : 'mike.caulfield@budoholdings.com';
+	$mailSub = isset($_POST['mail_sub']) ? $_POST['mail_sub'] : 'Rebill Sheet Today';
+	$mailMsg = isset($_POST['mail_msg']) ? $_POST['mail_msg'] . $tableSpreadsheet : 'Today\'s rebill sheet has been completed..' . $tableSpreadsheet;
+/*	print_r (isset($_POST['recipients'])); 
+	print_r (isset($_POST['mail_sub'])); 
+	print_r (isset($_POST['mail_msg'])); */
 
+//	$mailto = $_POST['recipients'];
+//	$mailSub = $_POST['mail_sub'];
+//	$mailMsg = $_POST['mail_msg'] . $tableSpreadsheet; //concatenate two strings together the key operator for concatenating two or more strings is "."
 
     // we need to write a query to get all the values from the database and convert it to a table
     // can you copy some statements that you've written earlier for connecting to the db
@@ -63,12 +69,12 @@
 	}
 
 	// previous issue is that ajax is still trying to process the form and the ajax does not support file upload
-	//need to make the ajax support file upload and we'll be good
+	//need to make the ajax support file upload and we'll be good 
 /*	$mail ->isSMTP();
 	$mail ->SMTPDebug = 0;
 	$mail ->SMTPAuth = true;
 	$mail ->SMTPSecure = 'ssl';
-	$mail ->Host = "smtp.gmail.com";
+	$mail ->Host = "ssl://smtp.gmail.com";
 	$mail ->Port = 465; // or 587
 	$mail ->IsHTML(true);
 	$mail ->Username = "test.budo@gmail.com";
@@ -85,7 +91,7 @@
 	$mail ->Port = 587; 
 	$mail ->IsHTML(true);
 	$mail ->Username = "rebill@budoholdings.com";
-	$mail ->Password = "123Password!";
+	$mail ->Password = "1234Password!";
 	$mail ->setFrom("rebill@budoholdings.com", "Budo Rebill Email");
 	$mail ->Subject = $mailSub;
 	$mail ->Body = $mailMsg;

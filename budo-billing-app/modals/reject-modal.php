@@ -35,11 +35,6 @@
 								<input class="form-check-input" type="checkbox" name="recipients[]" value="phil.pliskin@budoholdings.com"> Phil P.
 							</label>
 						</div>
-						<div class="form-check form-check-inline">
-							<label class="form-check-label">
-								<input class="form-check-input" type="checkbox" name="recipients[]" value="boyang.dong@budoholdings.com"> Boyang D. 
-							</label>
-						</div>
 						<strong><p style="margin-top: 5px; margin-bottom: 5px;">Title</p></strong>
 						<input type="text" name="mail_sub" class="form-control" value="REJECTED: Rebill Sheet Today"/>
 						<strong><p style="margin-top: 10px; margin-bottom: 5px;">Message</p></strong>

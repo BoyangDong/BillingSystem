@@ -46,23 +46,33 @@
 						<strong><p>To Clearing Firm</p></strong>
 						<div class="form-check form-check-inline">
 							<label class="form-check-label">
-								<input class="form-check-input" type="checkbox" name="clearing_firm_recipients[]" value="nroberts@nirvanats.com" checked="true"> Nora Roberts
+								<input class="form-check-input" type="checkbox" name="clearing_firm_recipients[]" value="nroberts@nirvanats.com" disabled="true"> Nora Roberts
 							</label>
 						</div>
 						<div class="form-check form-check-inline">
 							<label class="form-check-label">
-								<input class="form-check-input" type="checkbox" name="clearing_firm_recipients[]" value="jschlaefke@nirvanats.com" checked="true"> John Schlaefke
+								<input class="form-check-input" type="checkbox" name="clearing_firm_recipients[]" value="jschlaefke@nirvanats.com" disabled="true"> John Schlaefke
 							</label>
 						</div>
 						<div class="form-check form-check-inline">
 							<label class="form-check-label">
-								<input class="form-check-input" type="checkbox" name="clearing_firm_recipients[]" value="becky.ali@budoholdings.com" checked="true"> Becky A. (notify user)
+								<input class="form-check-input" type="checkbox" name="clearing_firm_recipients[]" value="becky.ali@budoholdings.com" disabled="true"> Becky A. (notify user)
+							</label>
+						</div>
+						<div class="form-check form-check-inline">
+							<label class="form-check-label">
+								<input class="form-check-input" type="checkbox" name="clearing_firm_recipients[]" value="mark.cukier@budoholdings.com" disabled="true"> Mark C. (Send to Him for Now)
+							</label>
+						</div>
+						<div class="form-check form-check-inline">
+							<label class="form-check-label">
+								<input class="form-check-input" type="checkbox" name="clearing_firm_recipients[]" value="boyang.dong@budoholdings.com" checked="true"> Boyang D. 
 							</label>
 						</div>
 						<strong><p style="margin-top: 5px; margin-bottom: 5px;">Title</p></strong>
-						<input type="text" name="clearing_firm_mail_sub" class="form-control" value="Rebill Sheet Today from Budo"/>
+						<input type="text" name="clearing_firm_mail_sub" id="email_clearing_house_subject" class="form-control" value="Budo Rebills Today"/>
 						<strong><p style="margin-top: 10px; margin-bottom: 5px;">Message</p></strong>
-						<textarea rows='3' name="clearing_firm_mail_msg" class="form-control" data-error="Please say something..." required>Hi, please checkout the attachment.&#13;&#10;&#13;&#10;Thanks!</textarea>
+						<textarea rows='5' name="clearing_firm_mail_msg" class="form-control" data-error="Please say something..." required>Hello: &#13;&#10;&#13;&#10;Please process the attached. &#13;&#10;&#13;&#10;Thanks very much.</textarea>
 						<!---->
 						<!--Attachment Section-->
 						<strong><p style="margin-top: 10px; margin-bottom: 8px;">Attachement</p></strong>

@@ -27,7 +27,12 @@
 						</div>
 						<div class="form-check form-check-inline">
 							<label class="form-check-label">
-								<input class="form-check-input" type="checkbox" id="becky" name="recipients[]" value="mike.caulfield@budoholdings.com" checked="true"> Mike C. 
+								<input class="form-check-input" type="checkbox" id="mikecaulfield" name="recipients[]" value="mike.caulfield@budoholdings.com" checked="true"> Mike C. 
+							</label>
+						</div>
+						<div class="form-check form-check-inline">
+							<label class="form-check-label">
+								<input class="form-check-input" type="checkbox" id="boyangdong" name="recipients[]" value="boyang.dong@budoholdings.com"> Boyang D. 
 							</label>
 						</div>
 						<br>
@@ -37,11 +42,11 @@
 							</label>
 						</div-->					
 						<strong><p style="margin-top: 5px; margin-bottom: 5px;">Title</p></strong>
-						<input type="text" name="mail_sub" class="form-control" value="Today's Rebill Sheet"/>
+						<input type="text" name="mail_sub" class="form-control" value="Today's Rebill Sheet Complete"/>
 						<strong><p style="margin-top: 10px; margin-bottom: 5px;">Message</p></strong>
-						<textarea rows='5' name="mail_msg" class="form-control" data-error="Please say something..." required>Hi, today's rebill sheet is completed. Please check it out on rebill app&#13;&#10;&#13;&#10;Thanks,&#13;&#10;Becky</textarea>
+						<textarea rows='6' name="mail_msg" class="form-control" data-error="Please say something..." required>Hi, &#13;&#10;Today's rebill sheet is completed. Please check it out on: &#13;&#10;http://172.30.80.25/budo-billing-app/index.php&#13;&#10;&#13;&#10;Thanks,&#13;&#10;Becky</textarea>
 						<!--Attachment Section-->
-						<strong><p style="margin-top: 10px; margin-bottom: 8px;">Attachement</p></strong>
+						<strong><p style="margin-top: 10px; margin-bottom: 8px;">Attachement (optional)</p></strong>
 						<input type="file" name="sheet_attached">
 						<br><br>
 						<!---->

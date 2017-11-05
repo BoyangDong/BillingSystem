@@ -7,9 +7,19 @@
 
 	$mail_edf = new PHPMailer();
 
-	$mailto_edf = $_POST['clearing_firm_recipients'];
-	$mailSub_edf = $_POST['clearing_firm_mail_sub'];
-	$mailMsg_edf = $_POST['clearing_firm_mail_msg'];	
+//	$mailto_edf = $_POST['clearing_firm_recipients'];
+//	$mailSub_edf = $_POST['clearing_firm_mail_sub'];
+//	$mailMsg_edf = $_POST['clearing_firm_mail_msg'];
+
+	if(isset($_POST['clearing_firm_recipients'])){
+		$mailto_edf = $_POST['clearing_firm_recipients'];
+	}
+	if(isset($_POST['clearing_firm_mail_sub'])){
+		$mailSub_edf = $_POST['clearing_firm_mail_sub'];
+	}
+	if(isset($_POST['clearing_firm_mail_msg'])){
+		$mailMsg_edf = $_POST['clearing_firm_mail_msg'];
+	}
 
 	$file_edf = "attachment/" . basename($_FILES['sheet_attached']['name']); 
 
@@ -26,7 +36,7 @@
 	$mail_edf ->Port = 587; 
 	$mail_edf ->IsHTML(true);
 	$mail_edf ->Username = "rebill@budoholdings.com";
-	$mail_edf ->Password = "123Password!";
+	$mail_edf ->Password = "1234Password!";
 	$mail_edf ->setFrom("rebill@budoholdings.com", "Budo Rebill Email");
 	$mail_edf ->Subject = $mailSub_edf;
 	$mail_edf ->Body = $mailMsg_edf;
