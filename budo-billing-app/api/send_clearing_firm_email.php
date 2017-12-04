@@ -28,7 +28,7 @@
 	}
 	// previous issue is that ajax is still trying to process the form and the ajax does not support file upload
 	//need to make the ajax support file upload and we'll be good
-	$mail_edf ->isSMTP();
+/*	$mail_edf ->isSMTP();
 	$mail_edf ->SMTPDebug = 0;
 	$mail_edf ->SMTPAuth = true;
 	$mail_edf ->SMTPSecure = 'TLS';
@@ -37,6 +37,19 @@
 	$mail_edf ->IsHTML(true);
 	$mail_edf ->Username = "rebill@budoholdings.com";
 	$mail_edf ->Password = "1234Password!";
+	$mail_edf ->setFrom("rebill@budoholdings.com", "Budo Rebill Email");
+	$mail_edf ->Subject = $mailSub_edf;
+	$mail_edf ->Body = $mailMsg_edf;*/
+
+	$mail_edf ->isSMTP();
+	$mail_edf ->SMTPDebug = 0;
+	$mail_edf ->SMTPAuth = false;
+//	$mail_edf ->SMTPSecure = 'TLS';
+	$mail_edf ->Host = "budoholdings-com.mail.protection.outlook.com";
+	$mail_edf ->Port = 25; 
+	$mail_edf ->IsHTML(true);
+	$mail_edf ->Username = "rebill@budoholdings.com";
+//	$mail_edf ->Password = "Password1!";
 	$mail_edf ->setFrom("rebill@budoholdings.com", "Budo Rebill Email");
 	$mail_edf ->Subject = $mailSub_edf;
 	$mail_edf ->Body = $mailMsg_edf;

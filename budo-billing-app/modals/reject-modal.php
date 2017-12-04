@@ -10,7 +10,7 @@
 				<div class="form-group">
 					<form action="api/send_email.php" id="reject-user-form" name="sendMail" method="POST" enctype="multipart/form-data">
 						<strong><p>Select Recipients</p></strong>
-						<div class="form-check form-check-inline">
+						<!--div class="form-check form-check-inline">
 							<label class="form-check-label">
 								<input class="form-check-input" type="checkbox" id="becky" name="recipients[]" value="becky.ali@budoholdings.com" checked="true"> Becky A.
 							</label>
@@ -34,7 +34,16 @@
 							<label class="form-check-label">
 								<input class="form-check-input" type="checkbox" name="recipients[]" value="phil.pliskin@budoholdings.com"> Phil P.
 							</label>
+						</div!-->
+						<div class="form-check form-check-inline">
+							<input type="radio" id="contactChoice1" name="recipients[]" value="becky.ali@budoholdings.com" checked="true">
+							<label for="contactChoice1">Becky A. </label>
 						</div>
+						<div class="form-check form-check-inline">
+							<input type="radio" id="contactChoice1" name="recipients[]" value="phil.pliskin@budoholdings.com">
+						    <label for="contactChoice2">Phil P.</label>
+						</div>
+						<br>
 						<strong><p style="margin-top: 5px; margin-bottom: 5px;">Title</p></strong>
 						<input type="text" name="mail_sub" class="form-control" value="REJECTED: Rebill Sheet Today"/>
 						<strong><p style="margin-top: 10px; margin-bottom: 5px;">Message</p></strong>

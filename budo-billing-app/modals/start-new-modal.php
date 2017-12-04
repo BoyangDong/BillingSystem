@@ -61,32 +61,42 @@
 							</div>	
 							<div class="form-check form-check-inline">
 								<label class="form-check-label">
-									<input class="form-check-input" type="checkbox" id="optionscity" name="recurring_group[]" value="optionscity" disabled="disabled"> OptionsCity
+									<input class="form-check-input" type="checkbox" id="optionscity" name="recurring_group[]" value="optionscity" disabled="disabled"> OC
 								</label>
 							</div>
 							<div class="form-check form-check-inline">
 								<label class="form-check-label">
-									<input class="form-check-input" type="checkbox" id="rivalsystems" name="recurring_group[]" value="rival" disabled="disabled"> RivalSystems
-								</label>
-							</div>		
-							<div class="form-check form-check-inline">
-								<label class="form-check-label">
-									<input class="form-check-input" type="checkbox" id="actant" name="recurring_group[]" value="actant" disabled="disabled"> Actant
-								</label>
-							</div>
-							<div class="form-check form-check-inline">
-								<label class="form-check-label">
-									<input class="form-check-input" type="checkbox" id="blue_cross" name="recurring_group[]" value="blue_cross" disabled="disabled"> Blue Cross Blue Shield
-								</label>
-							</div>
-							<div class="form-check form-check-inline">
-								<label class="form-check-label">
-									<input class="form-check-input" type="checkbox" id="euclid" name="recurring_group[]" value="euclid" disabled="disabled"> Euclid (Dental Insurance)
+									<input class="form-check-input" type="checkbox" id="rivalsystems" name="recurring_group[]" value="rival" disabled="disabled"> Rival Systems
 								</label>
 							</div>		
 							<div class="form-check form-check-inline">
 								<label class="form-check-label">
 									<input class="form-check-input" type="checkbox" id="cloud9" name="recurring_group[]" value="cloud9" disabled="disabled"> Cloud9
+								</label>
+							</div>
+							<div class="form-check form-check-inline">
+								<label class="form-check-label">
+									<input class="form-check-input" type="checkbox" id="actant" name="recurring_group[]" value="Actant"> Actant
+								</label>
+							</div>
+							<div class="form-check form-check-inline">
+								<label class="form-check-label">
+									<input class="form-check-input" type="checkbox" id="blue_cross" name="recurring_group[]" value="BCBS"> BCBS (Insurance)
+								</label>
+							</div>
+							<div class="form-check form-check-inline">
+								<label class="form-check-label">
+									<input class="form-check-input" type="checkbox" id="euclid" name="recurring_group[]" value="Euclid"> Euclid
+								</label>
+							</div>		
+							<div class="form-check form-check-inline">
+								<label class="form-check-label">
+									<input class="form-check-input" type="checkbox" id="cloud9" name="recurring_group[]" value="ICE"> ICE
+								</label>
+							</div>
+							<div class="form-check form-check-inline">
+								<label class="form-check-label">
+									<input class="form-check-input" type="checkbox" id="cloud9" name="recurring_group[]" value="Jae"> JAE Tech
 								</label>
 							</div>
 							<br>

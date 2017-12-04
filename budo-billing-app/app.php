@@ -63,6 +63,9 @@
 			<!--div class="col-lg-3">			 
 				Date: <input class="datepicker" type="text" name="date">
 			</div-->
+			<!--div class="col-lg-1"> 
+				<input type="button" class="btn btn-info" id="show_recurring_charge" value="Recurring" onclick="window.open('recurring_charge_panel.')" disabled="true"/>
+			</div-->	
 			<div class="col-lg-1"> 
 				<input type="button" class="btn btn-danger" id="start_new" value="Start New" data-toggle="modal" data-target="#start-new-modal"/>
 				<?php include 'modals/start-new-modal.php'; ?>
@@ -72,7 +75,7 @@
 			</div-->	
 			<div class="col-lg-1">
 				<form method="post" action="api/export.php">
-					<input type="submit" name="export" id="export" class="btn btn-warning" value="csv Export"/>
+					<input type="submit" name="export" id="export" class="btn btn-warning" value="xls Export"/>
 				</form>
 			</div>
 			<div class="col-lg-1"> 

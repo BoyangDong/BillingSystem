@@ -83,7 +83,7 @@
 	$mail ->Subject = $mailSub;
 	$mail ->Body = $mailMsg;*/
 
-	$mail ->isSMTP();
+/*	$mail ->isSMTP();
 	$mail ->SMTPDebug = 0;
 	$mail ->SMTPAuth = true;
 	$mail ->SMTPSecure = 'TLS';
@@ -92,6 +92,19 @@
 	$mail ->IsHTML(true);
 	$mail ->Username = "rebill@budoholdings.com";
 	$mail ->Password = "1234Password!";
+	$mail ->setFrom("rebill@budoholdings.com", "Budo Rebill Email");
+	$mail ->Subject = $mailSub;
+	$mail ->Body = $mailMsg;*/
+
+	$mail ->isSMTP();
+	$mail ->SMTPDebug = 0;
+	$mail ->SMTPAuth = false;
+//	$mail ->SMTPSecure = 'TLS';
+	$mail ->Host = "budoholdings-com.mail.protection.outlook.com";
+	$mail ->Port = 25; 
+	$mail ->IsHTML(true);
+	$mail ->Username = "rebill@budoholdings.com";
+//	$mail ->Password = "Password1!";
 	$mail ->setFrom("rebill@budoholdings.com", "Budo Rebill Email");
 	$mail ->Subject = $mailSub;
 	$mail ->Body = $mailMsg;

@@ -61,7 +61,7 @@
 		<div class="row header-row">
 			<div class="col-lg-9"> <h2 id="header">Billing System Approver Panel</h2></div> 
 			<div class="col-lg-1"> 
-				<input type="button" class="btn btn-default" id="start_new" value="Start New" data-toggle="modal" data-target="#start-new-modal"/>
+				<input type="button" class="btn btn-default" id="start_new" value="Start New" data-toggle="modal" data-target="#start-new-modal" disabled="true" />
 				<?php include 'modals/start-new-modal.php'; ?>
 			</div>
 			<!--div class="col-lg-1"> 
@@ -69,7 +69,7 @@
 			</div-->	
 			<div class="col-lg-1">
 				<form method="post" action="api/export.php">
-					<input type="submit" name="export" id="export" class="btn btn-default" value="csv Export"/>
+					<input type="submit" name="export" id="export" class="btn btn-default" value="xls Export"/>
 				</form>
 			</div>
 			<div class="col-lg-1"> 
