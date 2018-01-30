@@ -6,8 +6,16 @@ $(document).ready(function(){
 		var start_date = document.querySelector('input[name="from_date"]').value; 
 		var end_date = document.querySelector('input[name="to_date"]').value;
 		var queryLength = -1;
-
-		if(start_date != '' && end_date != ''){
+		var fetch_data = true; 
+		if(start_date == '' && end_date == ''){
+			alert("Pick a Date & Range!");
+			fetch_data = false; 
+		}else if (start_date == '') {
+			start_date = end_date;
+		}else if(end_date == ''){
+			end_date = start_date;
+		}
+		if(fetch_data){
 			$.ajax({
 				url: 'api/filter_history.php',
 				method: 'POST',
@@ -45,11 +53,7 @@ $(document).ready(function(){
 					}									
 				}
 			});
-		}else{
-			alert("Pick a Date & Range!");
-
 		}
-
 	});
 
 });
