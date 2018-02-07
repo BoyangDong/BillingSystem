@@ -59,16 +59,21 @@
 
 		<!--main-->
 		<div class="row header-row">
-			<div class="col-lg-9"> <h2 id="header">Daily Billing System</h2></div> 
+			<div class="col-lg-6"> <h2 id="header">Daily Billing System</h2></div> 
 			<!--div class="col-lg-3">			 
 				Date: <input class="datepicker" type="text" name="date">
 			</div-->
 			<!--div class="col-lg-1"> 
 				<input type="button" class="btn btn-info" id="show_recurring_charge" value="Recurring" onclick="window.open('recurring_charge_panel.')" disabled="true"/>
 			</div-->	
+			<div class="col-lg-2"> <input type="date" name="workbench_date" id="workbench_date" class="form-control" title="Rebill Date"></div>
 			<div class="col-lg-1"> 
 				<input type="button" class="btn btn-danger" id="start_new" value="Start New" data-toggle="modal" data-target="#start-new-modal"/>
 				<?php include 'modals/start-new-modal.php'; ?>
+			</div>
+			<div class="col-lg-1"> 
+				<input type="button" class="btn btn-info" id="upload_sheet" value="xls Upload" data-toggle="modal" data-target="#upload-sheet-modal"/>
+				<?php include 'modals/upload-sheet-modal.php'; ?>
 			</div>
 			<!--div class="col-lg-1"> 
 				<input type="button" class="btn btn-warning" id="show_adjustment_history" value="Adjustmnt"/>

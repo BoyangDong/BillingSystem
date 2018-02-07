@@ -70,13 +70,17 @@
 							</label>
 						</div-->
 						<div class="form-check form-check-inline">
-							<input type="radio" id="contactChoice1" name="clearing_firm_recipients[]" value="mark.cukier@budoholdings.com" checked="true">
-							<label for="contactChoice1">Mark C. (loop in for now)</label>
+							<input type="radio" id="contactChoice1" name="clearing_firm_recipients[]" value="budo.rebill.approver@budoholdings.com">
+							<label for="contactChoice1">Budo Rebill Approver</label>
 						</div>
 						<div class="form-check form-check-inline">
 							<input type="radio" id="contactChoice1" name="clearing_firm_recipients[]" value="nirvana.rebill@budoholdings.com" disabled="true">
 						    <label for="contactChoice2">Nirvana Rebill Recipients Group</label>
 						</div>
+						<!--div class="form-check form-check-inline">
+							<input type="radio" id="contactChoice3" name="clearing_firm_recipients[]" value="boyang.dong@budoholdings.com">
+							<label for="contactChoice3">Boyang D. (notify developer)</label>
+						</div-->
 						<br>
 						<strong><p style="margin-top: 5px; margin-bottom: 5px;">Title</p></strong>
 						<input type="text" name="clearing_firm_mail_sub" id="email_clearing_house_subject" class="form-control" value="Budo Rebills Today"/>
