@@ -1,0 +1,6 @@
+*.pyc
+winvevn
+venv
+.DS_Store
+config.py
+app/config
