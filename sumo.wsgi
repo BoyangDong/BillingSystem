@@ -1,1 +1,0 @@
-uwsgi --wsgi-file wsgi.py --callable application --http 0.0.0.0:5000
